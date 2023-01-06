@@ -1,0 +1,28 @@
+body {
+  background-color: black;
+  color: aliceblue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+img {
+  float: right;
+  margin: 5px;
+}
+
+a {
+  color: steelblue;
+  text-decoration: none;
+}
+a:hover {
+    color: skyblue;
+    text-decoration: underline;
+  }
+
+div.main {
+    width: 800px;
+}
+
+h3 {
+  color: grey;
+}
