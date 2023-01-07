@@ -5,10 +5,15 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-img {
+img.medium {
+  width: 800px;
+}
+
+img.float {
   float: right;
   margin: 5px;
 }
+
 
 a {
   color: steelblue;
