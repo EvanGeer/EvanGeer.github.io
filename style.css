@@ -9,16 +9,29 @@ img.medium {
   width: 800px;
 }
 
-img.float {
+img.float-right {
   float: right;
   margin: 5px;
 }
 
+img.float-left {
+  float: right;
+  margin: 5px;
+}
 
 a {
   color: steelblue;
   text-decoration: none;
 }
+a.footer {
+  color: rgb(129, 150, 179);
+  text-decoration: none;
+}
+a.footer:hover {
+  color: rgb(26, 117, 245);
+  text-decoration: none;
+}
+
 a:hover {
     color: skyblue;
     text-decoration: underline;
