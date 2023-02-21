@@ -21,30 +21,8 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
   const [projects, setProjects] = React.useState<any>(null);
 
   useEffect(() => {
-    const json = `{
-      "projects": [
-        {
-          "title": "Auto Dimensioning Engine Rebuild",
-          "source": "MSuite",
-          "openSource": false,
-          "technologies": ["C#", "WPF", "Revit"],
-          "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
-          "details": "Additional Functionality: ",
-          "imgSrc":  "../images/dimensionEngine.jpg"
-        },
-        {
-          "title": "Select All Like UI Overhaul",
-          "company": "MSuite",
-          "openSource": false,
-          "technologies": ["C#", "WPF", "Revit"],
-          "summary": "Refactored UI in MVVM pattern with more modular and componentized controls",
-          "details": "...",
-          "imgSrc":  "../images/SelectAllLike.jpg"
-        }
-      ]
-    }`
+    const json = 
 
-    // setProjects(JSON.parse(json));
     fetch("../projects/projectData.json", {
     headers : { 
       'Content-Type': 'application/json',
@@ -71,7 +49,9 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
       indicatorLabels={["1", "2", "3"]}
       indicators={false}
     >
-      {projects?.projects?.map((p) => {
+      {projects?.projects
+        ?.filter(p => p.highlight)
+        .map((p) => {
         return (
           <Carousel.Item interval={100000}>
             <Container className="bg-secondary rounded p-4">
