@@ -8,7 +8,7 @@
       "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
       "imgSrc":  "../images/dimensionEngine.jpg",
-      "highlight": "true"
+      "highlight": true
     },
     {
       "title": "Select All Like UI Overhaul",
@@ -18,7 +18,47 @@
       "summary": "Refactored UI in MVVM pattern with more modular and componentized controls",
       "details": "...",
       "imgSrc":  "../images/SelectAllLike.jpg",
-      "highlight": "true"
+      "highlight": true
+    },
+    {
+      "title": "PacMan Game",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["JavaScript"],
+      "summary": " Create PacMan and Kriby sprites, and let them battle for supremacy! This project illustrates some dynamic interaction with the DOM as well as some physical space awareness.",
+      "details": "...",
+      "imgSrc":  "https://evangeer.github.io/MITxMERN-PacMan/sample.gif",
+      "highlight": false,
+      "hide": true,
+      "repo": "https://github.com/EvanGeer/MITxMERN-PacMan",
+      "deployment": "https://evangeer.github.io/MITxMERN-PacMan"
+    },
+    {
+      "title": "MBTA Transit Tracker",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["JavaScript"],
+      "summary": "Track realtime location and capacity of MBTA buses. It's great if you're trying to get to MIT!",
+      "details": "...",
+      "imgSrc": "https://evangeer.github.io/MITxMERN-TransitTracker/sample.gif",
+      "highlight": false,
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/MITxMERN-TransitTracker",
+      "deployment": "https://evangeer.github.io/MITxMERN-TransitTracker"
+    },
+    {
+      "title": "Eyes Animation",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["JavaScript"],
+      "summary": "Simple demo of working with css/js/html to animate the DOM and track mouse movement. Plus you get to make a green monster smile!",
+      "details": "...",
+      "imgSrc": "https://evangeer.github.io/MITxMERN-Eyes/EyesSample.gif",
+      "highlight": false,
+      "hide": true,
+      "repo": "https://github.com/EvanGeer/MITxMERN-Eyes",
+      "deployment": "https://evangeer.github.io/MITxMERN-Eyes/"
     }
+
   ]
 }
