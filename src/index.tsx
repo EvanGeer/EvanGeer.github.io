@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Router } from "./Router";
 import MainNav from "./components/MainNav";
 import { Container } from "react-bootstrap";
@@ -18,14 +18,14 @@ const getStuff = () => {
 const root = ReactDOM.createRoot(getStuff());
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <MainNav />
 
       <Container className="pb-5 mb-3 h-100">
         <Router />
       </Container>
 
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
 

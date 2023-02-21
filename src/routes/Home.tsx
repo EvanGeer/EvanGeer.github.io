@@ -8,7 +8,7 @@ function Home() {
       {/* Summary */}
       <h3 className="display-4 text-info">Evan Geer</h3>
       <h3 className="text-muted">
-        Engineering Leadership | Product Vision | Software Development{" "}
+        Engineering Leadership | Product Vision | Software Development
       </h3>
       <p className="text-light">
         Leader in engineering, software, and construction with a passion for
