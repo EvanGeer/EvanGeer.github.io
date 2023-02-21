@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "title": "Auto Dimensioning Engine Rebuild",
+      "title": "Dimension Engine Rebuild",
       "source": "MSuite",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
@@ -19,6 +19,45 @@
       "details": "...",
       "imgSrc":  "../images/SelectAllLike.jpg",
       "highlight": true
+    },
+    {
+      "title": "Open Library Book Search",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["React, JavaScript, OpenLibrary API"],
+      "summary": "Leveraging OpneLibrary and Amazon's APIs to search book data",
+      "details": "...",
+      "imgSrc":  "https://github.com/EvanGeer/MITxMERN-BookSearch/blob/main/docs/sample.gif?raw=true",
+      "highlight": false,
+      "hide": true,
+      "repo": "https://github.com/EvanGeer/MITxMERN-BookSearch",
+      "deployment": "https://evangeer.github.io/MITxMERN-BookSearch/"
+    },
+    {
+      "title": "Tic Tac Toe",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["React, JavaScript"],
+      "summary": "Simple Tic Tac Toe game to illustrate React Components",
+      "details": "...",
+      "imgSrc":  "https://github.com/EvanGeer/tic-tac-toe/blob/main/docs/sample.gif?raw=true",
+      "highlight": false,
+      "hide": true,
+      "repo": "https://github.com/EvanGeer/tic-tac-toe",
+      "deployment": "https://evangeer.github.io/tic-tac-toe/"
+    },
+    {
+      "title": "ATM UI",
+      "company": "MITxMERN",
+      "openSource": true,
+      "technologies": ["React, JavaScript"],
+      "summary": "Sample ATM UI to illustrate React Components",
+      "details": "...",
+      "imgSrc":  "https://github.com/EvanGeer/MITxMERN-ATM/blob/main/docs/sampleIamge.gif?raw=true",
+      "highlight": false,
+      "hide": true,
+      "repo": "https://github.com/EvanGeer/MITxMERN-ATM",
+      "deployment": "https://evangeer.github.io/MITxMERN-ATM/"
     },
     {
       "title": "PacMan Game",
