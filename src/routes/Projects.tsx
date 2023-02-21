@@ -27,29 +27,26 @@ export function Projects() {
         .filter(p => p.company === "MITxMERN")
         .map((p) => {
       return (
-        <div className="col p-1">
-          <div className="card bg-dark">
+        <div className="col card p-0 m-1 fluid bg-dark align-content" style={{minWidth: "300px"}}>
             <h5 className="card-header bg-primary">{p.title}</h5>
             <img className="card-img-top" src={p.imgSrc} alt="Card image cap" />
             <div className="card-body">
               <p className="card-text">{p.summary}</p>
-              <a href={p.development} className="btn btn-primary">
-                More Info
-              </a>
+              <a href={p.deployment} className="btn btn-primary">
+                Deployment
+              </a>{" "}
               <a href={p.repo} className="btn btn-secondary">
                 Repo
               </a>
             </div>
-          </div>
         </div>
       );
     });
   };
 
   return (
-    <div className="container p-5">
+    <div className="container">
       <h2>
-        <br />
         MITx MERN
         <small className="text-muted">
           | Full Stack with MongoDB, Express, React and Node.js
@@ -76,10 +73,7 @@ export function Projects() {
             developer, or to specialize in one of these areas with further skill
             development.
           </p>
-
-          <br />
-          <br />
-          <b>Key Take-Aways</b>
+          <h3>Key Take-Aways</h3>
           <ul className="lead text-dark">
             <li>
               Build, test, and deploy a web application using the MERN stack
