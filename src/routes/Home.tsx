@@ -1,14 +1,6 @@
-import React from "react";
-import logo from "./logo.svg";
 import "../styles/style.css";
-import BasicExample, { NavEG } from "../components/MainNav";
-import { HeadShot } from "../components/HeadShot";
 import ProjectHighlights from "../components/ProjectHighlights";
-import { Container, Navbar } from "react-bootstrap";
-import { Skills } from "../components/Skills";
 
-import { RouterProvider } from "react-router-dom";
-import { router } from "../router";
 
 function Home() {
   return (

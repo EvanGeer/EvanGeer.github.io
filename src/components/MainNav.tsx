@@ -35,12 +35,12 @@ export function BasicExample() {
               <LinkContainer to="/projects">
                 <Nav.Link>Projects</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/resume">
+              {/* <LinkContainer to="/resume">
                 <Nav.Link>Resume</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/books">
                 <Nav.Link>Books</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
           <Navbar.Text>

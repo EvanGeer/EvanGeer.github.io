@@ -1,28 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import { Bio } from "./routes/Bio";
 import { ErrorNotFound } from "./routes/ErrorNotFound";
+import { Projects } from "./routes/Projects";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorNotFound />
-  },
-  {
-    path: "/Bio",
-    element: <Bio />,
-  },
-  // {
-  //   path: "/Portfolio",
-  //   element: <Portfolio />,
-  // },
-  // {
-  //   path: "/Resume",
-  //   element: <Resume />,
-  // },
-  // {
-  //   path: "/Books",
-  //   element: <Books />,
-  // },
-]);
+export function Router() {
+  return (
+    <Routes>
+    {/* Error Element */}
+    <Route path="*" element={<ErrorNotFound />} />
+    
+    {/* Main Routes */}
+    <Route path="/" element={<Home/>}/>
+    <Route path="/bio" element={<Bio/>} />
+    <Route path="/projects" element={<Projects />} />
+  </Routes>
+  )
+};

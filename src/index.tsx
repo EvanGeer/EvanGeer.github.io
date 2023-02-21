@@ -1,14 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./routes/Home";
 import reportWebVitals from "./reportWebVitals";
 
-import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
-import { router } from "./router";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
 import MainNav from "./components/MainNav";
-import { Footer } from "./components/Footer";
-import { Bio } from "./routes/Bio";
-import { ErrorNotFound } from "./routes/ErrorNotFound";
 import { Container } from "react-bootstrap";
 
 const root = ReactDOM.createRoot(
@@ -20,16 +16,9 @@ root.render(
       <MainNav />
 
       <Container className="pb-5 mb-3 h-100">
-        <Routes>
-          {/* Error Element */}
-          <Route path="*" element={<ErrorNotFound />} />
-          
-          {/* Main Routes */}
-          <Route path="/" element={<Home/>}/>
-          <Route path="/bio" element={<Bio/>} />
-          <Route path="/projects" element={null} />
-        </Routes>
+        <Router />
       </Container>
+
     </BrowserRouter>
   </React.StrictMode>
 );
