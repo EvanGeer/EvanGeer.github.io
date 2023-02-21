@@ -43,25 +43,29 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
     <Carousel
       nextLabel=""
       prevLabel=""
-      indicatorLabels={["1", "2", "3"]}
-      indicators={false}
+      // indicatorLabels={["1", "2", "3"]}
+      // indicators={false}
+      controls={false}
+      className="rounded bg-secondary"
     >
       {projects?.projects
         ?.filter(p => p.highlight)
         .map((p) => {
         return (
-          <Carousel.Item interval={100000}>
-            <Container className="bg-secondary rounded p-4">
-              <h3 className="text-dark pb-2">{p.title}</h3>
-              <p>
+          <Carousel.Item interval={5000}>
+            <Container className="d-flex p-4">
+              <Container>
+              <h3 className="col text-dark pr-2 pl-0">{p.title}</h3>
+              <p  className="">
                 {p.summary}
-                {/* Re-architected for easier maintainability and extensibility
-                using an Abstract Factory/Builder pattern */}
               </p>
+
+              </Container>
               <img
-                className="d-block w-100"
+                className="col w-75"
                 src={p.imgSrc}
                 alt={p.imgSrc}
+                
               />
             </Container>
           </Carousel.Item>

@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "title": "Auto Dimensioning Engine Rebuild",
+      "title": "Dimension Engine Rebuild",
       "source": "MSuite",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],

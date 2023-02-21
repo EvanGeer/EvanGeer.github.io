@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 
 export function Projects() {
   const [projects, setProjects] = useState<any>(null);
@@ -27,18 +28,32 @@ export function Projects() {
         .filter(p => p.company === "MITxMERN")
         .map((p) => {
       return (
-        <div className="col card p-0 m-1 fluid bg-dark align-content" style={{minWidth: "300px"}}>
-            <h5 className="card-header bg-primary">{p.title}</h5>
-            <img className="card-img-top" src={p.imgSrc} alt="Card image cap" />
-            <div className="card-body">
-              <p className="card-text">{p.summary}</p>
-              <a href={p.deployment} className="btn btn-primary">
-                Deployment
-              </a>{" "}
-              <a href={p.repo} className="btn btn-secondary">
-                Repo
+        <div className="col card p-0 m-2 fluid bg-dark align-content" 
+          style={{minWidth: "300px", boxShadow:"#00000055 4px 4px 12px"}}>
+            <h5 className="card-header bg-light">
+            <a href={p.deployment} className="text-info">
+              {p.title}
               </a>
+              <a href={p.repo}>
+                <img src="../images/Github_black.png" className="float-right"
+                  style={{width:"20px"}}/>
+              </a>
+            </h5>
+            <a href={p.deployment}>
+
+            <img className="card-img-top" src={p.imgSrc} alt="Card image cap" />
+            </a>
+            <div className="card-body">
+              <p className="card-text">{p.summary}{" "}
+              <a href={p.deployment}>
+                ...
+              </a>{" "}
+              </p>
             </div>
+            <Card.Footer className="bg-light">
+              <img src="../images/mitx-pro-logo.png" 
+                style={{height:"20px"}}/>
+            </Card.Footer>
         </div>
       );
     });
@@ -93,7 +108,9 @@ export function Projects() {
         <div className="jumbotron ml-0 pt-4 pb-3 mb-0">
           <h3 className="display-5 text-dark">Class Portfolio</h3>
           <hr className="my-2" />
-          <div className="row row-cols-3 p-0 no-gutter">{getCards()}</div>
+          <div className="row row-cols-3 p-0 no-gutter">
+            {getCards()}
+          </div>
         </div>
       </div>
       <br />
