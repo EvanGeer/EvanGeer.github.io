@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import { json } from "stream/consumers";
-import dimensionEngine from "../images/dimensionEngine.jpg";
-import selectAllLike from "../images/SelectAllLike.jpg";
-// import projectData from "../projects/projectData.json";
+
 
 type ProjectHighlight = {
   title: string;

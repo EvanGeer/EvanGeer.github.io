@@ -7,9 +7,15 @@ import { Router } from "./Router";
 import MainNav from "./components/MainNav";
 import { Container } from "react-bootstrap";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+
+const getStuff = () => {
+  const elem = document.getElementById("root") as HTMLElement;
+  console.log(elem);
+
+  return elem;
+}
+
+const root = ReactDOM.createRoot(getStuff());
 root.render(
   <React.StrictMode>
     <BrowserRouter>

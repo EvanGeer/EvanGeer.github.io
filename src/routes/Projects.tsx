@@ -23,7 +23,7 @@ export function Projects() {
 
   const getCards = () => {
     if (!projects?.projects) return <></>;
-    return projects.projects
+    return projects.projects 
         .filter(p => p.company === "MITxMERN")
         .map((p) => {
       return (
