@@ -1,29 +1,46 @@
+# Getting Started with Create React App
 
-## About
-I like to tinker with code, be it learning a new language, teaching my kiddo how to code with Lego robotics sets, or simply looking for ways to simplify and more concisely communicate with a machine. I love to refactor complex code (perhaps to a fault) into simple, elegant, modular code, leveragoing OOP and/or FP principles and design patterns. I first started coding in the early 90's writing boot scripts to selectively load drivers, etc. so that my 286 clone with sub-par RAM could run the video games I wanted to play, and as a result I have a keen eye towards software performance. Since then I have leveraged my coding skills to start an internal business process automation group for an environmental engineering firm, deliver exceptional new product and features for organizations from start-ups to fortune 500 companies.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-I have led software teams since early 2017, and I love igniting a passion for clean code in others. Most recently I led the engineering team for a start-up, laying the groundwork for the eventual successful exit via acquisition by a fortune 500 company, and worked to seamlessly integrate that team into the new organization. 
+## Available Scripts
 
-## Leadership Skills:
-- Scaling Engineering Teams from startup to Enterprise
-- Product Management
-- Agile Team Leadership
+In the project directory, you can run:
 
-## Tech Skills:
-- C# (advanced)
-- JavaScript (intermediate)
-- Java (intermediate)
-- Visual Basic (intermediate)
-- MS SQL Server/T-SQL (intermediate)
-- Python (novice)
+### `npm start`
 
-## Currenly Learning:
-- Full Stack with MERN via MITx
-- TypeScript
-- Rust
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-<!---
-EvanGeer/EvanGeer is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

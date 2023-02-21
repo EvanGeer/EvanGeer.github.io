@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "title": "Auto Dimensioning Engine Rebuild",
+      "source": "MSuite",
+      "openSource": false,
+      "technologies": ["C#", "WPF", "Revit"],
+      "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
+      "details": "Additional Functionality: ",
+      "imgSrc":  "../images/dimensionEngine.jpg"
+    },
+    {
+      "title": "Select All Like UI Overhaul",
+      "company": "MSuite",
+      "openSource": false,
+      "technologies": ["C#", "WPF", "Revit"],
+      "summary": "Refactored UI in MVVM pattern with more modular and componentized controls",
+      "details": "...",
+      "imgSrc":  "../images/SelectAllLike.jpg"
+    }
+  ]
+}
