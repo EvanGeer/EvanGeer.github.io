@@ -2,32 +2,62 @@
   "projects": [
     {
       "title": "Dimension Engine Rebuild",
-      "source": "MSuite",
+      "org": "MSuite",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
       "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
-      "imgSrc":  "../images/dimensionEngine.jpg",
+      "imgSrc": "../images/dimensionEngine.jpg",
       "highlight": true
     },
     {
       "title": "Select All Like UI Overhaul",
-      "company": "MSuite",
+      "org": "MSuite",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
       "summary": "Refactored UI in MVVM pattern with more modular and componentized controls",
       "details": "...",
-      "imgSrc":  "../images/SelectAllLike.jpg",
+      "imgSrc": "../images/SelectAllLike.jpg",
+      "highlight": true
+    },
+    {
+      "title": "Score Keeper",
+      "org": "Personal",
+      "openSource": false,
+      "technologies": ["C#", "Firebase", "React", "Xamarin"],
+      "summary": "Simple score keeping app for board games or sports",
+      "details": "...",
+      "imgSrc": "../images/SelectAllLike.jpg",
+      "highlight": true
+    },
+    {
+      "title": "Enterprise Reusable Content",
+      "org": "BC",
+      "openSource": false,
+      "technologies": ["C#", "WPF", "Revit"],
+      "summary": "text",
+      "details": "...",
+      "imgSrc": "../images/SelectAllLike.jpg",
+      "highlight": true
+    },
+    {
+      "title": "Design Data Manager",
+      "org": "BC",
+      "openSource": false,
+      "technologies": ["C#", "WPF", "MS SQL Server", "Revit"],
+      "summary": "text",
+      "details": "...",
+      "imgSrc": "../images/SelectAllLike.jpg",
       "highlight": true
     },
     {
       "title": "Open Library Book Search",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
-      "technologies": ["React, JavaScript, OpenLibrary API"],
-      "summary": "Leveraging OpneLibrary and Amazon's APIs to search book data",
+      "technologies": ["React", "JavaScript", "OpenLibrary API"],
+      "summary": "Leveraging OpenLibrary and Amazon's APIs to search book data",
       "details": "...",
-      "imgSrc":  "https://github.com/EvanGeer/MITxMERN-BookSearch/blob/main/docs/sample.gif?raw=true",
+      "imgSrc": "https://github.com/EvanGeer/MITxMERN-BookSearch/blob/main/docs/sample.gif?raw=true",
       "highlight": false,
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-BookSearch",
@@ -35,12 +65,12 @@
     },
     {
       "title": "Tic Tac Toe",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
-      "technologies": ["React, JavaScript"],
+      "technologies": ["React", "TypeScript"],
       "summary": "Simple Tic Tac Toe game to illustrate React Components",
       "details": "...",
-      "imgSrc":  "https://github.com/EvanGeer/tic-tac-toe/blob/main/docs/sample.gif?raw=true",
+      "imgSrc": "https://github.com/EvanGeer/tic-tac-toe/blob/main/docs/sample.gif?raw=true",
       "highlight": false,
       "hide": true,
       "repo": "https://github.com/EvanGeer/tic-tac-toe",
@@ -48,12 +78,12 @@
     },
     {
       "title": "ATM UI",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
-      "technologies": ["React, JavaScript"],
+      "technologies": ["React", "TypeScript", "Bootstrap"],
       "summary": "Sample ATM UI to illustrate React Components",
       "details": "...",
-      "imgSrc":  "https://github.com/EvanGeer/MITxMERN-ATM/blob/main/docs/sampleIamge.gif?raw=true",
+      "imgSrc": "https://github.com/EvanGeer/MITxMERN-ATM/blob/main/docs/sampleIamge.gif?raw=true",
       "highlight": false,
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-ATM",
@@ -61,12 +91,12 @@
     },
     {
       "title": "PacMan Game",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
       "technologies": ["JavaScript"],
-      "summary": " Create PacMan and Kriby sprites, and let them battle for supremacy! This project illustrates some dynamic interaction with the DOM as well as some physical space awareness.",
+      "summary": "Create PacMan and Kirby sprites, and let them battle for supremacy! This project illustrates some dynamic interaction with the DOM as well as some physical space awareness.",
       "details": "...",
-      "imgSrc":  "https://evangeer.github.io/MITxMERN-PacMan/sample.gif",
+      "imgSrc": "https://evangeer.github.io/MITxMERN-PacMan/sample.gif",
       "highlight": false,
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-PacMan",
@@ -74,7 +104,7 @@
     },
     {
       "title": "MBTA Transit Tracker",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
       "technologies": ["JavaScript"],
       "summary": "Track realtime location and capacity of MBTA buses. It's great if you're trying to get to MIT!",
@@ -87,7 +117,7 @@
     },
     {
       "title": "Eyes Animation",
-      "company": "MITxMERN",
+      "org": "MITxMERN",
       "openSource": true,
       "technologies": ["JavaScript"],
       "summary": "Simple demo of working with css/js/html to animate the DOM and track mouse movement. Plus you get to make a green monster smile!",
@@ -98,6 +128,5 @@
       "repo": "https://github.com/EvanGeer/MITxMERN-Eyes",
       "deployment": "https://evangeer.github.io/MITxMERN-Eyes/"
     }
-
   ]
 }

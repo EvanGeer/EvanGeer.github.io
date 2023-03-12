@@ -24,6 +24,16 @@
   color: white;
 }
 
+.img-gradient::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to right, rgba(103, 26, 26, 0) 0, #0d1422 120%);
+  margin-top: -200px;
+  height: 200px;
+  /* width: 90%; */
+  content: '';
+}
+
 .App-link {
   color: #61dafb;
 }

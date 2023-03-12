@@ -1,15 +1,7 @@
-
-
-
-
-export function HeadShot({src}) {
-    return (
-        <img
-        className="navbar-brand rounded p-0"
-        src={src}
-        width="60"
-        alt=""
-        />
-    )
-
+export function HeadShot({ size, className="" }: { size: number, className?:string }) {
+  return <img
+    className={className}
+    src="https://avatars.githubusercontent.com/u/49009980?v=4"
+    width={size}
+    alt="Head Shot" />;
 }

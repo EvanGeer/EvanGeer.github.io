@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./routes/Home";
-import { Bio } from "./routes/Bio";
-import { ErrorNotFound } from "./routes/ErrorNotFound";
-import { Projects } from "./routes/Projects";
+import Home from "./pages/Home";
+import { Bio } from "./pages/Bio";
+import { ErrorNotFound } from "./pages/ErrorNotFound";
+import { Projects } from "./pages/Projects";
 
 export function Router() {
   return (

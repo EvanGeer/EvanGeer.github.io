@@ -7,20 +7,16 @@ import gitHubLogo from "../images/Github_black.png";
 import linkInLogo from "../images/LinkedIN_black.png";
 import mailIcon from "../images/Mail_ru_black.png";
 import { LinkContainer } from "react-router-bootstrap";
+import { HeadShot } from "./HeadShot";
 
-export function BasicExample() {
+export function MainNav() {
   return (
     <>
       <Navbar bg="light" expand="lg" className="sticky-top mb-4">
         <Container className="">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Brand href="/">
-            <img
-              className="navbar-brand rounded p-0"
-              src="https://avatars.githubusercontent.com/u/49009980?v=4"
-              width="40"
-              alt=""
-            />
+            <HeadShot size={40} />
             Evan Geer
           </Navbar.Brand>
           {/* <Container className="d-flex justify-content-left"> */}
@@ -59,7 +55,7 @@ export function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default MainNav;
 
 export function NavEG(): any {
   return (

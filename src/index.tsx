@@ -6,6 +6,7 @@ import { HashRouter } from "react-router-dom";
 import { Router } from "./Router";
 import MainNav from "./components/MainNav";
 import { Container } from "react-bootstrap";
+// import './styles/theme.scss'
 
 
 const getStuff = () => {

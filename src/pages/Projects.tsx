@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
+import dewaltLogo from "../images/dewalt.jpeg";
+import MITxLogo from "../images/mitx-pro-logo.png";
+import bc from "../images/sbd_logo_square.png";
+import msuite from "../images/msuite.png";
+import { OrgLogo } from "../components/OrgLogo";
+import { ProjectCardSm } from "../components/ProjectCardSm";
 
 export function Projects() {
   const [projects, setProjects] = useState<any>(null);
@@ -24,44 +30,16 @@ export function Projects() {
 
   const getCards = () => {
     if (!projects?.projects) return <></>;
-    return projects.projects 
-        .filter(p => p.company === "MITxMERN")
-        .map((p) => {
-      return (
-        <div className="col card p-0 m-2 fluid bg-dark align-content" 
-          style={{minWidth: "300px", boxShadow:"#00000055 4px 4px 12px"}}>
-            <h5 className="card-header bg-light">
-            <a href={p.deployment} className="text-info">
-              {p.title}
-              </a>
-              <a href={p.repo}>
-                <img src="../images/Github_black.png" className="float-right"
-                  style={{width:"20px"}}/>
-              </a>
-            </h5>
-            <a href={p.deployment}>
-
-            <img className="card-img-top" src={p.imgSrc} alt="Card image cap" />
-            </a>
-            <div className="card-body">
-              <p className="card-text">{p.summary}{" "}
-              <a href={p.deployment}>
-                ...
-              </a>{" "}
-              </p>
-            </div>
-            <Card.Footer className="bg-light">
-              <img src="../images/mitx-pro-logo.png" 
-                style={{height:"20px"}}/>
-            </Card.Footer>
-        </div>
-      );
-    });
+    return (
+      projects.projects
+        // .filter(p => p.company === "MITxMERN")
+        .map((p) => <ProjectCardSm p={p} />)
+    );
   };
 
   return (
     <div className="container">
-      <h2>
+      {/* <h2>
         MITx MERN
         <small className="text-muted">
           | Full Stack with MongoDB, Express, React and Node.js
@@ -101,16 +79,14 @@ export function Projects() {
             <li>Build a full stack portfolio in GitHub</li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
       <br />
-      <div className="row row-cols-3 bg-secondary p-3 no-gutter border border-dark rounded">
+      <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
         <div className="jumbotron ml-0 pt-4 pb-3 mb-0">
-          <h3 className="display-5 text-dark">Class Portfolio</h3>
+          <h3 className="display-5 text-dark">Select Projects</h3>
           <hr className="my-2" />
-          <div className="row row-cols-3 p-0 no-gutter">
-            {getCards()}
-          </div>
+          <div className="row row-cols-3 p-0 no-gutter">{getCards()}</div>
         </div>
       </div>
       <br />

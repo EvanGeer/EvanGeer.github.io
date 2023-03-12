@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "../images/tech/reactLogo.svg";
 import "./App.css";
 import { Container } from "react-bootstrap";
 
