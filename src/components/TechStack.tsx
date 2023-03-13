@@ -26,25 +26,29 @@ enum Tech {
 
 export function TechStack({
   techStack,
-  className = "p-1",
+  className = "",
+  size = 25,
+  reversed = false,
 }: {
   techStack: string[];
   className?: string;
+  size?: number;
+  reversed?: boolean;
 }) {
   const logos = new Map<string, JSX.Element>([
-    [Tech.BOOTSTRAP, <LogoImg src={bootstrapLogo} alt={Tech.BOOTSTRAP}/>],
-    [Tech.C_SHARP, <LogoImg src={cSharpLogo} alt={Tech.C_SHARP}/>],
-    [Tech.FIREBASE, <LogoImg src={firebaseLogo} alt={Tech.FIREBASE}/>],
-    [Tech.JAVA_SCRIPT, <LogoImg src={javaScriptLogo} alt={Tech.JAVA_SCRIPT}/>],
-    [Tech.MS_SQL, <LogoImg src={sqlServerLogo} alt={Tech.MS_SQL}/>],
-    [Tech.REACT, <LogoImg src={reactLogo} alt={Tech.REACT}/>],
-    [Tech.REVIT, <LogoImg src={revitLogo} alt={Tech.REVIT}/>],
-    [Tech.TYPE_SCRIPT, <LogoImg src={typeScriptLogo} alt={Tech.TYPE_SCRIPT}/>],
-    [Tech.WPF, <LogoImg src={wpfLogo} alt={Tech.WPF}/>],
-    [Tech.XAMARIN, <LogoImg src={xamarinLogo} alt={Tech.XAMARIN}/>],
+    [Tech.BOOTSTRAP, <LogoImg src={bootstrapLogo} alt={Tech.BOOTSTRAP} />],
+    [Tech.C_SHARP, <LogoImg src={cSharpLogo} alt={Tech.C_SHARP} />],
+    [Tech.FIREBASE, <LogoImg src={firebaseLogo} alt={Tech.FIREBASE} />],
+    [Tech.JAVA_SCRIPT, <LogoImg src={javaScriptLogo} alt={Tech.JAVA_SCRIPT} />],
+    [Tech.MS_SQL, <LogoImg src={sqlServerLogo} alt={Tech.MS_SQL} />],
+    [Tech.REACT, <LogoImg src={reactLogo} alt={Tech.REACT} />],
+    [Tech.REVIT, <LogoImg src={revitLogo} alt={Tech.REVIT} />],
+    [Tech.TYPE_SCRIPT, <LogoImg src={typeScriptLogo} alt={Tech.TYPE_SCRIPT} />],
+    [Tech.WPF, <LogoImg src={wpfLogo} alt={Tech.WPF} />],
+    [Tech.XAMARIN, <LogoImg src={xamarinLogo} alt={Tech.XAMARIN} />],
   ]);
 
-  function LogoImg({ src, alt }: { src: string, alt: string }) {
+  function LogoImg({ src, alt }: { src: string; alt: string }) {
     return (
       <img
         key={`${alt}-${src}`}
@@ -52,27 +56,28 @@ export function TechStack({
         src={src}
         alt={alt}
         title={alt}
-        style={{ 
-            height: "25px", 
-            padding: "1px", 
-            // filter: " grayscale(100%)" 
+        style={{
+          height: `${size}px`,
+          // filter: " grayscale(100%)"
         }}
       />
     );
   }
 
-  function AltText({text}: {text: string}) {
-      return (
-          <small className={className}>{text}</small>
-      )
+  function AltText({ text }: { text: string }) {
+    return <small className={className}>{text}</small>;
   }
 
   return (
     <>
-      {techStack
-        .sort()
-        .reverse()
-        .map((tech) => logos.get(tech))}
+      {reversed
+        ? techStack
+            .sort()
+            .reverse()
+            .map((tech) => logos.get(tech))
+        : techStack
+            .sort()
+            .map((tech) => logos.get(tech))}
     </>
   );
 }

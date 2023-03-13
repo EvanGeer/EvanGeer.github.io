@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       {/* Summary */}
-      <h3 className="display-4 text-info">Evan Geer</h3>
+      {/* <h3 className="display-4 text-info">Evan Geer</h3> */}
       <h3 className="text-muted">
         Engineering Leadership | Product Vision | Software Development
       </h3>
@@ -23,8 +23,8 @@ function Home() {
 
       {/* Project Highlights */}
       <h2 className="text-info">Project Highlights</h2>
-      {/* <ProjectHighlights /> */}
-      <ProjectList />
+      <ProjectHighlights />
+      {/* <ProjectList /> */}
     </>
   );
 }

@@ -6,6 +6,9 @@ import { HashRouter } from "react-router-dom";
 import { Router } from "./Router";
 import MainNav from "./components/MainNav";
 import { Container } from "react-bootstrap";
+import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css"
+import "./styles/egCard.css"
+
 // import './styles/theme.scss'
 
 

@@ -1,4 +1,5 @@
 export default interface Project {
+  id: number;
   title: string;
   org: string;
   openSource: boolean;

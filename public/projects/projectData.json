@@ -1,36 +1,42 @@
 {
   "projects": [
     {
+      "id":1,
       "title": "Dimension Engine Rebuild",
       "org": "MSuite",
+      "deployment": "https://www.msuite.com/product/bim/",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
       "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
-      "imgSrc": "../images/dimensionEngine.jpg",
+      "imgSrc": "../images/DimensionExample.png",
       "highlight": true
     },
     {
+      "id":2,
       "title": "Select All Like UI Overhaul",
       "org": "MSuite",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
       "summary": "Refactored UI in MVVM pattern with more modular and componentized controls",
       "details": "...",
-      "imgSrc": "../images/SelectAllLike.jpg",
+      "imgSrc": "../images/SelectAllLike.png",
+      "deployment": "https://www.msuite.com/product/bim/",
       "highlight": true
     },
     {
+      "id":3,
       "title": "Score Keeper",
       "org": "Personal",
       "openSource": false,
       "technologies": ["C#", "Firebase", "React", "Xamarin"],
-      "summary": "Simple score keeping app for board games or sports",
+      "summary": "Simple score keeping app for board games or sports.",
       "details": "...",
-      "imgSrc": "../images/SelectAllLike.jpg",
+      "imgSrc": "../images/egGame.png",
       "highlight": true
     },
     {
+      "id":4,
       "title": "Enterprise Reusable Content",
       "org": "BC",
       "openSource": false,
@@ -38,9 +44,11 @@
       "summary": "text",
       "details": "...",
       "imgSrc": "../images/SelectAllLike.jpg",
-      "highlight": true
+      "highlight": true,
+      "hide":true
     },
     {
+      "id":5,
       "title": "Design Data Manager",
       "org": "BC",
       "openSource": false,
@@ -48,48 +56,53 @@
       "summary": "text",
       "details": "...",
       "imgSrc": "../images/SelectAllLike.jpg",
-      "highlight": true
+      "highlight": true,
+      "hide":true
     },
     {
+      "id":6,
       "title": "Open Library Book Search",
       "org": "MITxMERN",
       "openSource": true,
       "technologies": ["React", "JavaScript", "OpenLibrary API"],
       "summary": "Leveraging OpenLibrary and Amazon's APIs to search book data",
       "details": "...",
-      "imgSrc": "https://github.com/EvanGeer/MITxMERN-BookSearch/blob/main/docs/sample.gif?raw=true",
+      "imgSrc": "../images/OpenLibrary.png",
       "highlight": false,
-      "hide": true,
+      "hide": false,
       "repo": "https://github.com/EvanGeer/MITxMERN-BookSearch",
       "deployment": "https://evangeer.github.io/MITxMERN-BookSearch/"
     },
     {
+      "id":7,
       "title": "Tic Tac Toe",
       "org": "MITxMERN",
       "openSource": true,
       "technologies": ["React", "TypeScript"],
       "summary": "Simple Tic Tac Toe game to illustrate React Components",
       "details": "...",
-      "imgSrc": "https://github.com/EvanGeer/tic-tac-toe/blob/main/docs/sample.gif?raw=true",
+      "imgSrc": "../images/TicTacToe.png",
       "highlight": false,
-      "hide": true,
+      "hide": false,
       "repo": "https://github.com/EvanGeer/tic-tac-toe",
       "deployment": "https://evangeer.github.io/tic-tac-toe/"
     },
     {
+      "id":8,
       "title": "ATM UI",
       "org": "MITxMERN",
       "openSource": true,
       "technologies": ["React", "TypeScript", "Bootstrap"],
       "summary": "Sample ATM UI to illustrate React Components",
       "details": "...",
-      "imgSrc": "https://github.com/EvanGeer/MITxMERN-ATM/blob/main/docs/sampleIamge.gif?raw=true",
+      "imgSrc": "../images/BankApp.png",
       "highlight": false,
-      "hide": true,
-      "repo": "https://github.com/EvanGeer/MITxMERN-ATM",
-      "deployment": "https://evangeer.github.io/MITxMERN-ATM/"
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/MITxMERN-BadBank",
+      "deployment": "https://evangeer.github.io/MITxMERN-BadBank/"
     },
     {
+      "id":9,
       "title": "PacMan Game",
       "org": "MITxMERN",
       "openSource": true,
@@ -103,6 +116,7 @@
       "deployment": "https://evangeer.github.io/MITxMERN-PacMan"
     },
     {
+      "id":10,
       "title": "MBTA Transit Tracker",
       "org": "MITxMERN",
       "openSource": true,
@@ -111,11 +125,12 @@
       "details": "...",
       "imgSrc": "https://evangeer.github.io/MITxMERN-TransitTracker/sample.gif",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-TransitTracker",
       "deployment": "https://evangeer.github.io/MITxMERN-TransitTracker"
     },
     {
+      "id":11,
       "title": "Eyes Animation",
       "org": "MITxMERN",
       "openSource": true,
