@@ -4,39 +4,54 @@ import ConditionalAnchor from "./ConditionalAnchor";
 import { OrgLogo } from "./OrgLogo";
 import { TechStack } from "./TechStack";
 
-export function ProjectCardSm({ p }: { p: Project }) {
+export function ProjectCardSm({
+  project,
+  href,
+}: {
+  project: Project;
+  href: string;
+}) {
   return (
     <Card className="col p-0 m-2 fluid bg-dark align-content egCard">
-      <Card.Header className="bg-light text-dark p-2">
-          {p.title}
-        {p.openSource ? (
-          <a href={p.repo}>
-            <i className="bi bi-github float-right ml-1"></i>
+      <Card.Header className="bg-light text-dark p-2 d-flex align-content-center justify-content-between">
+        {project.title}
+        <div className="d-flex align-content-center">
+          {project.deployment ? (
+            <a href={project.deployment}>
+              <i className="bi bi-link-45deg float-right ml-1"></i>
+            </a>
+          ) : (
+            <></>
+          )}
+
+          {project.openSource ? (
+            <a href={project.repo}>
+              <i className="bi bi-github float-right ml-1"></i>
+            </a>
+          ) : (
+            <></>
+          )}
+          <a href={href} className="align-self-center">
+            {/* <small> */}
+              {/* <i className="bi bi-arrows-fullscreen float-right ml-1"></i> */}
+              <i className="bi bi-aspect-ratio float-right ml-1"></i>
+            {/* </small> */}
           </a>
-        ) : (
-          <></>
-        )}
-        {p.deployment ? (
-          <a href={p.deployment}>
-            <i className="bi bi-link-45deg float-right ml-1"></i>
-          </a>
-        ) : (
-          <></>
-        )}
+        </div>
       </Card.Header>
-      <a href={`/#/projects/${p.id}`}>
-        <Card.Img variant="bottom" src={p.imgSrc} />
+      <a href={href}>
+        <Card.Img variant="bottom" src={project.imgSrc} />
       </a>
       <Card.Body>
-        {p.summary} <a href={`/#/projects/${p.id}`}>...</a>{" "}
+        {project.summary} <a href={`/#/projects/${project.id}`}>...</a>{" "}
       </Card.Body>
       <Card.Footer className="bg-light p-2 text-muted d-flex justify-content-between">
         <div>
-          <OrgLogo org={p.org} />
+          <OrgLogo org={project.org} />
         </div>
         <div className="align-self-center">
           <TechStack
-            techStack={p.technologies}
+            techStack={project.technologies}
             className="ml-1"
             size={20}
           />

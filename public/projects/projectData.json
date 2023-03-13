@@ -1,7 +1,8 @@
 {
   "projects": [
     {
-      "id":1,
+      "id": 1,
+      "key":"MSuite-DimensionEngine",
       "title": "Dimension Engine Rebuild",
       "org": "MSuite",
       "deployment": "https://www.msuite.com/product/bim/",
@@ -10,10 +11,11 @@
       "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
       "imgSrc": "../images/DimensionExample.png",
-      "highlight": true
-    },
+      "highlight": true,
+      "markdown":"## Narrative:\n\nPrior to completing the project, the dimension logic was some of the most complex in the codebase. It was a mess of complex nested logic that only the most senior devs could untangle. The issue was that there was a lot of complexity in terms of how to identify which types of objects would receive which types of dimensions, where the dimensions needed be pulled from. For example, dimensions on straight components need to get pulled from the of the pipe if it is flanged, otherwise the center of the end fitting, but we need different specialized handling for different types of content that a use might have in their model.\n\nTo solve this problem, I built-out an OOP architecture that leveraged a Director and Abstract Builder. This allowed all the logic dividing up content types to be distributed to their appropriate Builder to be fully encapsulated within the Director. Then an abstract base class served as a Template for each of the Builders that would need to be build and allowed for a standardized procedure for getting all the data needed to build a dimension. This allowed the even more junior devs to simply implement the abstract class, and then they would only need to fill out the details for the various steps needed for that new dimension type. \n\n## Scope:\n\n- Refactor the code into a common design pattern to make it easier to work with\n- Add new dimension types\n   - Angle\n   - Rotation\n   - Overall Run\n   - Overall Edge to Edge\n   - Rolling Offset\n   - Duct Offset\n- Add a UI with options for each dimension type\n- Add images to demonstrate what to expect the selected options\n\n## Roles:\n- Designed the software architecture using UML, such that junior devs could easily build out new functionality\n- Implemented new functionality, working as player-coach to junior devs\n\n## License:\nPaid"   },
     {
-      "id":2,
+      "id": 2,
+      "key":"MSuite-SelectAllLike",
       "title": "Select All Like UI Overhaul",
       "org": "MSuite",
       "openSource": false,
@@ -25,30 +27,21 @@
       "highlight": true
     },
     {
-      "id":3,
-      "title": "Score Keeper",
-      "org": "Personal",
-      "openSource": false,
-      "technologies": ["C#", "Firebase", "React", "Xamarin"],
-      "summary": "Simple score keeping app for board games or sports.",
-      "details": "...",
-      "imgSrc": "../images/egGame.png",
-      "highlight": true
-    },
-    {
-      "id":4,
-      "title": "Enterprise Reusable Content",
+      "id": 4,
+      "key":"BC-3dComponentLibrary",
+      "title": "3D Component Library",
       "org": "BC",
       "openSource": false,
-      "technologies": ["C#", "WPF", "Revit"],
-      "summary": "text",
+      "technologies": ["C#", "WPF", "MS SQL Server", "Revit"],
+      "summary": "Build-out a reusable component library for Revit families, including Revit add-in for cut sheets and standardized dimensions pulled from an Azure hosted SQL Server.",
       "details": "...",
-      "imgSrc": "../images/SelectAllLike.jpg",
+      "imgSrc": "../images/BC_ERC.png",
       "highlight": true,
-      "hide":true
+      "hide": false
     },
     {
-      "id":5,
+      "id": 5,
+      "key":"BC-DesignDataManager",
       "title": "Design Data Manager",
       "org": "BC",
       "openSource": false,
@@ -57,10 +50,26 @@
       "details": "...",
       "imgSrc": "../images/SelectAllLike.jpg",
       "highlight": true,
-      "hide":true
+      "hide": true
     },
     {
-      "id":6,
+      "id": 8,
+      "key":"MITxMERN-BankApp",
+      "title": "Banking App Front End",
+      "org": "MITxMERN",
+      "openSource": true,
+      "technologies": ["React", "TypeScript", "Bootstrap"],
+      "summary": "Sample Bank and ATM UI to illustrate React Components",
+      "details": "...",
+      "imgSrc": "../images/BankApp.png",
+      "highlight": false,
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/MITxMERN-BadBank",
+      "deployment": "https://evangeer.github.io/MITxMERN-BadBank/"
+    },
+    {
+      "id": 6,
+      "key":"MITxMERN-BookSearch",
       "title": "Open Library Book Search",
       "org": "MITxMERN",
       "openSource": true,
@@ -74,12 +83,13 @@
       "deployment": "https://evangeer.github.io/MITxMERN-BookSearch/"
     },
     {
-      "id":7,
-      "title": "Tic Tac Toe",
+      "id": 7,
+      "key":"MITxMERN-GameBoard",
+      "title": "Flexible Game Board",
       "org": "MITxMERN",
       "openSource": true,
       "technologies": ["React", "TypeScript"],
-      "summary": "Simple Tic Tac Toe game to illustrate React Components",
+      "summary": "Simple game board to illustrate reusability of React Components. The board and tiles are setup to handle multiple games and tile types.",
       "details": "...",
       "imgSrc": "../images/TicTacToe.png",
       "highlight": false,
@@ -88,21 +98,8 @@
       "deployment": "https://evangeer.github.io/tic-tac-toe/"
     },
     {
-      "id":8,
-      "title": "ATM UI",
-      "org": "MITxMERN",
-      "openSource": true,
-      "technologies": ["React", "TypeScript", "Bootstrap"],
-      "summary": "Sample ATM UI to illustrate React Components",
-      "details": "...",
-      "imgSrc": "../images/BankApp.png",
-      "highlight": false,
-      "hide": false,
-      "repo": "https://github.com/EvanGeer/MITxMERN-BadBank",
-      "deployment": "https://evangeer.github.io/MITxMERN-BadBank/"
-    },
-    {
-      "id":9,
+      "id": 9,
+      "key":"MITxMERN-PacMan",
       "title": "PacMan Game",
       "org": "MITxMERN",
       "openSource": true,
@@ -113,10 +110,12 @@
       "highlight": false,
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-PacMan",
-      "deployment": "https://evangeer.github.io/MITxMERN-PacMan"
+      "deployment": "https://evangeer.github.io/MITxMERN-PacMan",
+      "markdown": "# MITxProject-PacMan\n## Summary:\nSimple project to demonstrate recursion and manipulating the DOM, while observing the state of the window. \n\n## Base Requirements:\n- PacMan should change direction at screen extents\n- PacMan should make a chomping animation\n\n## Add-on scope:\n- Added Physics (vertical direction only)\n   - Gravitational acceleration\n   - Bounce losses\n   - Randomized drag coefficient for each PacMan\n- Resizing the window should scootch the PacMen back in the frame and retain the feel of their animation\n- Single button should start the animation\n- Formatting should be more visually pleasing\n   - Button should be centered\n   - PacMen should be visible behind the button\n- Button should remain on top of the PacMen so that it can be clicked when they hover over"
     },
     {
-      "id":10,
+      "id": 10,
+      "key":"MITxMERN-TransitTracker",
       "title": "MBTA Transit Tracker",
       "org": "MITxMERN",
       "openSource": true,
@@ -130,7 +129,20 @@
       "deployment": "https://evangeer.github.io/MITxMERN-TransitTracker"
     },
     {
-      "id":11,
+      "id": 3,
+      "key":"EG-ScoreKeeper",
+      "title": "Score Keeper",
+      "org": "Personal",
+      "openSource": false,
+      "technologies": ["C#", "Firebase", "React", "Xamarin"],
+      "summary": "Simple score keeping app for board games or sports.",
+      "details": "...",
+      "imgSrc": "../images/egGame.png",
+      "highlight": false
+    },
+    {
+      "id": 11,
+      "key":"MITxMERN-Eyes",
       "title": "Eyes Animation",
       "org": "MITxMERN",
       "openSource": true,

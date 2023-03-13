@@ -1,6 +1,7 @@
 import "../styles/style.css";
 import ProjectHighlights from "../components/ProjectHighlights";
 import { ProjectList } from "../components/ProjectList";
+import { Projects } from "./Projects";
 
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
       <h2 className="text-info">Project Highlights</h2>
       <ProjectHighlights />
       {/* <ProjectList /> */}
+      {/* <Projects /> */}
     </>
   );
 }

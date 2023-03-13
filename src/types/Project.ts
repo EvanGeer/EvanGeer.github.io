@@ -1,5 +1,6 @@
 export default interface Project {
   id: number;
+  key: string;
   title: string;
   org: string;
   openSource: boolean;
@@ -11,4 +12,5 @@ export default interface Project {
   hide: boolean;
   repo: string;
   deployment: string;
+  markdown: string;
 }

@@ -4,7 +4,7 @@ import { Bio } from "./pages/Bio";
 import { ErrorNotFound } from "./pages/ErrorNotFound";
 import { Projects } from "./pages/Projects";
 import { ProjectCard } from "./components/ProjectCard";
-import { ProjectDetail } from "./components/ProjectDetail";
+import { ProjectDetailCard } from "./components/ProjectDetailCard";
 
 export function Router() {
   return (
@@ -16,7 +16,7 @@ export function Router() {
     <Route path="/" element={<Home/>}/>
     <Route path="/bio" element={<Bio/>} />
     <Route path="/projects" element={<Projects />} />
-    <Route path="/projects/:id" element={<ProjectDetail />} />
+    <Route path="/projects/:id" element={<Projects />} />
   </Routes>
   )
 };

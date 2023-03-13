@@ -25,20 +25,21 @@ export function OrgLogo({org, layout="justify-content-between"}: {org: string, l
     function ComboLogoImg() {
       return( 
         <>
+
                 <img
           src={MSuite_Logo}
           style={{ height: "30px", paddingRight:"4px", borderRight: "darkgray 1px solid" }}
           />{" "}
-          <img
+          {/* <img
+          src={DeWalt_Logo}
+          style={{ height: "30px" }}
+          // className="rounded float-right"
+        />           */}
+        <img
           src={SBD_Logo}
           style={{ height: "30px"}}
           />
           
-          {/* <img
-          src={DeWalt_Logo}
-          style={{ height: "30px" }}
-          className="rounded float-right"
-        /> */}
         </>     );
       
     }

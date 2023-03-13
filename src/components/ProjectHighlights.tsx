@@ -49,7 +49,7 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
       className="rounded bg-secondary"
     >
       {projects?.projects
-        ?.filter((p) => p.highlight)
+        ?.filter((p) => p.highlight && !p.hide)
         .map((p) => {
           return (
             <Carousel.Item interval={5000}>

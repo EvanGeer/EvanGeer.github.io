@@ -13,6 +13,7 @@
 
 .egCard {
     min-width: 300px;
+    max-width: 500px;
     position: relative;
     /* display: inline-block; */
     background-color: #fff;
@@ -40,7 +41,7 @@
   
   .egCard:hover {
     -webkit-transform: scale(1.01, 1.01);
-    transform: scale(1.01, 1.01);
+    transform: scale(1.03, 1.03);
   }
   
   .egCard:hover::after {
