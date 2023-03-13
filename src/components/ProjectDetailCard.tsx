@@ -1,5 +1,5 @@
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Project from "../types/Project";
 import ConditionalAnchor from "./ConditionalAnchor";
 import { OrgLogo } from "./OrgLogo";
@@ -7,53 +7,32 @@ import { TechStack } from "./TechStack";
 import ReactMarkdown from "react-markdown";
 import { useState } from "react";
 
-export function ProjectDetailCard({ project }: { project: Project }) {
+export function ProjectDetailCard({
+  project,
+  backRef,
+}: {
+  project: Project;
+  backRef: string;
+}) {
   const [p, setP] = useState(project);
 
   return (
     <Card className="bg-dark align-content">
-      <Card.Header className="bg-light text-dark p-2">
-        {/* <Container> */}
-          <div>
-            {/* <a href={p.deployment}> */}
-            {p.title}
-            {/* </a> */}
-            {p.openSource ? (
-              <a href={p.repo}>
-                <i className="bi bi-github float-right ml-1"></i>
-              </a>
-            ) : (
-              <></>
-            )}
-            {p.deployment ? (
-              <a href={p.deployment}>
-                <i className="bi bi-link-45deg float-right ml-1"></i>
-              </a>
-            ) : (
-              <></>
-            )}
+      <Card.Header className="bg-light text-dark pl-2 pr-2 pt-0 pb-2">
+        <div className="align-content-center justify-content-between d-flex p-0 m-0">
+          <div className="align-content-center justify-content-between d-flex">
+            <OrgLogo org={p.org} className="align-self-center pl-1" />
           </div>
-          {/* <div className="d-flex justify-content-left fluid">
-            <Col className="align-self-left">
-              <OrgLogo org={p.org} />
-            </Col>
-            <Col className="ml-auto"> */}
-              <Image fluid src={p.imgSrc} thumbnail />
-            {/* </Col>
-          </div> */}
-          <div className="d-flex justify-content-between pt-2">
-            <div>
-              <OrgLogo org={p.org} />
-            </div>
-            <div className="align-self-center">
-              <TechStack
-                techStack={p.technologies}
-                className="ml-1"
-                size={20}
-              />
-            </div>
+
+          <div className="d-flex">
+            <div className="align-self-center">{p.title}</div>
+            <Link to={backRef}>
+              <i className="fs-2 p-0 m-0 bi bi-x ml-1"></i>
+            </Link>
           </div>
-        {/* </Container> */}
+        </div>
+
+        <Image fluid src={p.imgSrc} thumbnail className="mt-0" />
       </Card.Header>
       <ConditionalAnchor
         href={p.deployment}
@@ -64,6 +43,21 @@ export function ProjectDetailCard({ project }: { project: Project }) {
         {/* <Card.Img variant="" src={p.imgSrc} /> */}
       </ConditionalAnchor>
       <Card.Body>
+        <h2>Details:</h2>
+
+        <h4 className="opacity-50">Tech Stack:</h4>
+        <div className="d-flex flex-row justify-content-left">
+          <TechStack
+            techStack={p.technologies}
+            includeText
+            className="mr-auto mb-1"
+            size={20}
+          />
+        </div>
+
+        <h4 className="opacity-50">Deployment: </h4>
+        <a href={p.deployment}>{p.deployment}</a>
+
         <ReactMarkdown>{p.markdown}</ReactMarkdown>
       </Card.Body>
       <Card.Footer className="bg-light p-2 text-muted d-flex justify-content-between">

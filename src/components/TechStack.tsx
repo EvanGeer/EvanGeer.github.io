@@ -29,11 +29,13 @@ export function TechStack({
   className = "",
   size = 25,
   reversed = false,
+  includeText = false,
 }: {
   techStack: string[];
   className?: string;
   size?: number;
   reversed?: boolean;
+  includeText?: boolean;
 }) {
   const logos = new Map<string, JSX.Element>([
     [Tech.BOOTSTRAP, <LogoImg src={bootstrapLogo} alt={Tech.BOOTSTRAP} />],
@@ -49,10 +51,18 @@ export function TechStack({
   ]);
 
   function LogoImg({ src, alt }: { src: string; alt: string }) {
+    return includeText ? (
+      <LogoImgVertical src={src} alt={alt} />
+    ) : (
+      <LogoImgHorizontal src={src} alt={alt} />
+    );
+  }
+
+  function LogoImgHorizontal({ src, alt }: { src: string; alt: string }) {
     return (
       <img
         key={`${alt}-${src}`}
-        className={className}
+        className={className + " align-self-center"}
         src={src}
         alt={alt}
         title={alt}
@@ -63,9 +73,31 @@ export function TechStack({
       />
     );
   }
+  function LogoImgVertical({ src, alt }: { src: string; alt: string }) {
+    return (
+      <div className="d-flex mr-auto">
+        <img
+          key={`${alt}-${src}`}
+          className={className + " align-self-center"}
+          src={src}
+          alt={alt}
+          title={alt}
+          style={{
+            height: `${size}px`,
+            // filter: " grayscale(100%)"
+          }}
+        />
+        {includeText ? <AltText text={alt} /> : null}
+      </div>
+    );
+  }
 
   function AltText({ text }: { text: string }) {
-    return <small className={className}>{text}</small>;
+    return (
+      <div className={className + " align-content-center d-flex ml-1"}>
+        {text}
+      </div>
+    );
   }
 
   return (
@@ -75,9 +107,7 @@ export function TechStack({
             .sort()
             .reverse()
             .map((tech) => logos.get(tech))
-        : techStack
-            .sort()
-            .map((tech) => logos.get(tech))}
+        : techStack.sort().map((tech) => logos.get(tech))}
     </>
   );
 }

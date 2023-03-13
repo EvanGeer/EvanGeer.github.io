@@ -7,7 +7,7 @@ import MSuite_Logo from "../images/orgs/msuite.png";
 import Org from "../types/Org";
 import { HeadShot } from "./HeadShot";
 
-export function OrgLogo({org, layout="justify-content-between"}: {org: string, layout?: string}) {
+export function OrgLogo({org, className=""}: {org: string, className?: string}) {
   const OrgLogos = new Map<string, JSX.Element>([
     [Org.BC, <LogoImg src={BC_Logo} />],
     [Org.MIT_MERN, <LogoImg src={MITx_Logo}/>],
@@ -18,6 +18,7 @@ export function OrgLogo({org, layout="justify-content-between"}: {org: string, l
     function LogoImg({src}: {src:string}) {
       return <img
       src={src}
+      className={className}
       style={{ height: "30px" }}
     />              
     }
@@ -28,6 +29,7 @@ export function OrgLogo({org, layout="justify-content-between"}: {org: string, l
 
                 <img
           src={MSuite_Logo}
+          className={className}
           style={{ height: "30px", paddingRight:"4px", borderRight: "darkgray 1px solid" }}
           />{" "}
           {/* <img
@@ -37,6 +39,7 @@ export function OrgLogo({org, layout="justify-content-between"}: {org: string, l
         />           */}
         <img
           src={SBD_Logo}
+          className={className}
           style={{ height: "30px"}}
           />
           

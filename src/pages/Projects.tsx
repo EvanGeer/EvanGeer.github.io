@@ -72,7 +72,7 @@ export function Projects() {
       <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
         <div className="jumbotron ml-0 pt-4 pb-3 mb-0">
           <Modal show={showDetail} onHide={handleClose} size="lg">
-            <ProjectDetailCard project={project} />
+            <ProjectDetailCard project={project} backRef={"/projects"}/>
           </Modal>
 
           <h3 className="display-5 text-dark" onClick={() => setProject(null)}>

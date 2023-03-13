@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { NavLink } from "react-router-dom";
 import gitHubLogo from "../images/Github_black.png";
 import linkInLogo from "../images/LinkedIN_black.png";
 import mailIcon from "../images/Mail_ru_black.png";
@@ -19,24 +20,11 @@ export function MainNav() {
             <HeadShot size={40} />
             Evan Geer
           </Navbar.Brand>
-          {/* <Container className="d-flex justify-content-left"> */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto  nav-tabs">
-              <LinkContainer to="/">
-                <Nav.Link>Home</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/bio">
-                <Nav.Link>Bio</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/projects">
-                <Nav.Link>Projects</Nav.Link>
-              </LinkContainer>
-              {/* <LinkContainer to="/resume">
-                <Nav.Link>Resume</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/books">
-                <Nav.Link>Books</Nav.Link>
-              </LinkContainer> */}
+                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                <Nav.Link as={NavLink} to="/bio">Bio</Nav.Link>
+                <Nav.Link as={NavLink} to="/projects">Projects</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Text>
