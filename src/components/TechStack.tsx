@@ -75,10 +75,10 @@ export function TechStack({
   }
   function LogoImgVertical({ src, alt }: { src: string; alt: string }) {
     return (
-      <div className="d-flex mr-auto">
+      <div className={className + " d-flex"}>
         <img
           key={`${alt}-${src}`}
-          className={className + " align-self-center"}
+          className="align-self-center"
           src={src}
           alt={alt}
           title={alt}
@@ -94,7 +94,7 @@ export function TechStack({
 
   function AltText({ text }: { text: string }) {
     return (
-      <div className={className + " align-content-center d-flex ml-1"}>
+      <div className={" align-content-center d-flex ml-1"}>
         {text}
       </div>
     );

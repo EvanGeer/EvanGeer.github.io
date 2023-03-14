@@ -27,7 +27,7 @@ export function ProjectDetailCard({
           <div className="d-flex">
             <div className="align-self-center">{p.title}</div>
             <Link to={backRef}>
-              <i className="fs-2 p-0 m-0 bi bi-x ml-1"></i>
+              <i className="link-secondary fs-2 p-0 m-0 bi bi-x ml-1"></i>
             </Link>
           </div>
         </div>
@@ -43,20 +43,57 @@ export function ProjectDetailCard({
         {/* <Card.Img variant="" src={p.imgSrc} /> */}
       </ConditionalAnchor>
       <Card.Body>
-        <h2>Details:</h2>
+        {/* <h2>Details:</h2> */}
 
-        <h4 className="opacity-50">Tech Stack:</h4>
-        <div className="d-flex flex-row justify-content-left">
-          <TechStack
-            techStack={p.technologies}
-            includeText
-            className="mr-auto mb-1"
-            size={20}
-          />
+        <div className="d-flex align-items-center">
+            <h5 className="opacity-50 m-0">Tech:</h5>
+            <div className="d-flex flex-row ml-2 container-sm">
+              <TechStack
+                techStack={p.technologies}
+                includeText
+                className="mr-2"
+                size={25}
+              />
+            </div>
         </div>
-
-        <h4 className="opacity-50">Deployment: </h4>
-        <a href={p.deployment}>{p.deployment}</a>
+        <div className="d-flex align-items-center">
+          <div className="d-flex align-self-center p-0 m-0">
+            <h5 className="opacity-50 m-0">Site: </h5>
+          </div>
+          <div className="d-flex fs-6 text-wrap ml-1">
+            {p.deployment ? (
+              <>
+                <a className="text-wrap" href={p.deployment}>
+                  {p.deployment
+                    ?.replace("http://", "")
+                    ?.replace("https://", "")
+                    ?.replace("www.", "")}
+                </a>
+              </>
+            ) : (
+              <i className="opacity-25">not available</i>
+            )}
+          </div>
+        </div>
+        <div className="d-flex align-items-center">
+          <div className="d-flex align-self-center p-0 m-0">
+            <h5 className="opacity-50 m-0">Repo: </h5>
+          </div>
+          <div className="d-flex fs-6 text-wrap ml-1">
+            {p.repo ? (
+              <>
+                <a className="text-wrap" href={p.repo}>
+                  {p.repo
+                    ?.replace("http://", "")
+                    ?.replace("https://", "")
+                    ?.replace("www.", "")}
+                </a>
+              </>
+            ) : (
+              <i className="opacity-25">not available</i>
+            )}
+          </div>
+        </div>
 
         <ReactMarkdown>{p.markdown}</ReactMarkdown>
       </Card.Body>

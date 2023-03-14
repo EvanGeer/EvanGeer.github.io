@@ -28,7 +28,7 @@
     },
     {
       "id": 4,
-      "key":"BC-3dComponentLibrary",
+      "key":"BC-ComponentLibrary",
       "title": "3D Component Library",
       "org": "BC",
       "openSource": false,
