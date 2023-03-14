@@ -15,18 +15,24 @@ export function MainNav() {
     <>
       <Navbar bg="light" expand="lg" className="sticky-top mb-4">
         <Container className="">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Brand href="/">
             <HeadShot size={40} />
             Evan Geer
           </Navbar.Brand>
-          <Navbar.Collapse id="basic-navbar-nav">
+          {/* <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto  nav-tabs">
-                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                <Nav.Link as={NavLink} to="/bio">Bio</Nav.Link>
-                <Nav.Link as={NavLink} to="/projects">Projects</Nav.Link>
+              <Nav.Link as={NavLink} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/bio">
+                Bio
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/projects">
+                Projects
+              </Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse> */}
           <Navbar.Text>
             <a className="footer" href="https://www.linkedin.com/in/evangeer/">
               <img width="20" className="p-0" src={linkInLogo} />

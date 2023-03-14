@@ -15,8 +15,9 @@ export function Router() {
     {/* Main Routes */}
     <Route path="/" element={<Home/>}/>
     <Route path="/bio" element={<Bio/>} />
-    <Route path="/projects" element={<Projects />} />
-    <Route path="/projects/:id" element={<Projects />} />
+    {/* <Route path="/projects" element={<Projects />} /> */}
+    <Route path="/projects/:id" element={<Home />} />
+    <Route path="/:id" element={<Home />} />
   </Routes>
   )
 };

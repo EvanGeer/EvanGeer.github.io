@@ -53,7 +53,7 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
         .map((p) => {
           return (
             <Carousel.Item interval={5000}>
-              <Container className="d-flex p-3">
+              <Container className="d-flex flex-wrap p-3">
                 <Container className="d-flex flex-column p-0">
                   <div className="align-self-stretch">
                     <h3 className="text-dark pr-2 pl-0">{p.title}</h3>
@@ -68,7 +68,9 @@ function IndividualIntervalsExample(projectData: ProjectHighlights) {
                     <OrgLogo org={p.org} />
                   </div>
                 </Container>
-                <img className="col w-75" src={p.imgSrc} alt={p.imgSrc} />
+                <img className="col w-75 mb-1 mt-1" src={p.imgSrc} alt={p.imgSrc} 
+                  style={{maxHeight:"200px", objectFit: "contain"}}
+                  />
               </Container>
             </Carousel.Item>
           );

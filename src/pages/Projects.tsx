@@ -7,7 +7,7 @@ import {
 } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { ProjectCardSm } from "../components/ProjectCardSm";
 import { ProjectDetailCard } from "../components/ProjectDetailCard";
 import Project from "../types/Project";
@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 
 export function Projects() {
   const navigate = useNavigate();
+  const location = useLocation().pathname;
+
   const { id } = useParams();
   const [projects, setProjects] = useState<Project[]>(null);
   const getProjectFromId = () => {
@@ -62,6 +64,7 @@ export function Projects() {
           <ProjectCardSm
             project={p}
             href={`/#/projects/${p.key}`}
+            // href={`/#${location}${p.key}`}
           />
         ))
     );
@@ -72,7 +75,7 @@ export function Projects() {
       <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
         <div className="jumbotron ml-0 pt-4 pb-3 mb-0">
           <Modal show={showDetail} onHide={handleClose} size="lg">
-            <ProjectDetailCard project={project} backRef={"/projects"}/>
+            <ProjectDetailCard project={project} backRef={handleClose}/>
           </Modal>
 
           <h3 className="display-5 text-dark" onClick={() => setProject(null)}>

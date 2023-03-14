@@ -12,26 +12,45 @@ export function ProjectDetailCard({
   backRef,
 }: {
   project: Project;
-  backRef: string;
+  backRef: () => void;
 }) {
   const [p, setP] = useState(project);
 
-  return (
-    <Card className="bg-dark align-content">
-      <Card.Header className="bg-light text-dark pl-2 pr-2 pt-0 pb-2">
-        <div className="align-content-center justify-content-between d-flex p-0 m-0">
-          <div className="align-content-center justify-content-between d-flex">
-            <OrgLogo org={p.org} className="align-self-center pl-1" />
-          </div>
+  const DetailBullet = ({
+    title,
+    children,
+  }: {
+    title: string;
+    children: JSX.Element[] | JSX.Element;
+  }) => {
+    <div className="d-flex flex-wrap align-items-center">
+      <div className="d-flex align-self-center p-0 m-0">
+        <h5 className="opacity-50 m-0 me-2">{title}:</h5>
+      </div>
+      <div className="d-flex fs-6 text-wrap">
+        {children}
+      </div>
+    </div>;
+  };
 
-          <div className="d-flex">
-            <div className="align-self-center">{p.title}</div>
-            <Link to={backRef}>
-              <i className="link-secondary fs-2 p-0 m-0 bi bi-x ml-1"></i>
-            </Link>
-          </div>
+  return (
+    <Card className="bg-opacity-0 align-content">
+      <div className="bg-light text-dark sticky-top align-content-center justify-content-between d-flex p-0 m-0 ps-1 pe-1 rounded-top">
+        <div className="align-content-center justify-content-between d-flex">
+          <OrgLogo org={p.org} className="align-self-center pl-1" />
         </div>
 
+        <div className="d-flex">
+          <div className="align-self-center">{p.title}</div>
+          {/* <Link to={backRef}> */}
+          <i
+            onClick={backRef}
+            className="link-secondary fs-2 p-0 m-0 bi bi-x ml-1"
+          ></i>
+          {/* </Link> */}
+        </div>
+      </div>
+      <Card.Header className="bg-light text-dark pl-2 pr-2 pt-0 pb-2">
         <Image fluid src={p.imgSrc} thumbnail className="mt-0" />
       </Card.Header>
       <ConditionalAnchor
@@ -42,25 +61,25 @@ export function ProjectDetailCard({
       >
         {/* <Card.Img variant="" src={p.imgSrc} /> */}
       </ConditionalAnchor>
-      <Card.Body>
+      <Card.Body className="bg-dark">
         {/* <h2>Details:</h2> */}
 
-        <div className="d-flex align-items-center">
-            <h5 className="opacity-50 m-0">Tech:</h5>
-            <div className="d-flex flex-row ml-2 container-sm">
-              <TechStack
-                techStack={p.technologies}
-                includeText
-                className="mr-2"
-                size={25}
-              />
-            </div>
+        <div className="d-flex flex-wrap align-items-center">
+          <h5 className="opacity-50 m-0 me-2">Tech:</h5>
+          {/* <div className="d-flex flex-wrap ml-2 container-sm"> */}
+          <TechStack
+            techStack={p.technologies}
+            includeText
+            className="me-2"
+            size={25}
+          />
+          {/* </div> */}
         </div>
-        <div className="d-flex align-items-center">
+        <div className="d-flex flex-wrap align-items-center">
           <div className="d-flex align-self-center p-0 m-0">
-            <h5 className="opacity-50 m-0">Site: </h5>
+            <h5 className="opacity-50 m-0 mr-1">Site: </h5>
           </div>
-          <div className="d-flex fs-6 text-wrap ml-1">
+          <div className="d-flex fs-6 text-wrap">
             {p.deployment ? (
               <>
                 <a className="text-wrap" href={p.deployment}>
@@ -75,11 +94,11 @@ export function ProjectDetailCard({
             )}
           </div>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="d-flex flex-wrap align-items-center">
           <div className="d-flex align-self-center p-0 m-0">
-            <h5 className="opacity-50 m-0">Repo: </h5>
+            <h5 className="opacity-50 m-0 me-2">Repo: </h5>
           </div>
-          <div className="d-flex fs-6 text-wrap ml-1">
+          <div className="d-flex fs-6 text-wrap">
             {p.repo ? (
               <>
                 <a className="text-wrap" href={p.repo}>
@@ -94,17 +113,9 @@ export function ProjectDetailCard({
             )}
           </div>
         </div>
-
+        <hr className="border-secondary" />
         <ReactMarkdown>{p.markdown}</ReactMarkdown>
       </Card.Body>
-      <Card.Footer className="bg-light p-2 text-muted d-flex justify-content-between">
-        <div>
-          <OrgLogo org={p.org} />
-        </div>
-        <div className="align-self-center">
-          <TechStack techStack={p.technologies} className="ml-1" size={20} />
-        </div>
-      </Card.Footer>
     </Card>
   );
 }

@@ -23,10 +23,10 @@ function Home() {
       </p>
 
       {/* Project Highlights */}
-      <h2 className="text-info">Project Highlights</h2>
-      <ProjectHighlights />
+      {/* <h2 className="text-info">Project Highlights</h2> */}
+      {/* <ProjectHighlights /> */}
       {/* <ProjectList /> */}
-      {/* <Projects /> */}
+      <Projects />
     </>
   );
 }

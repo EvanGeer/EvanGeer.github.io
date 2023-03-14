@@ -1,4 +1,5 @@
 import { Card, Container, Row } from "react-bootstrap";
+import { useNavigate, useNavigation } from "react-router-dom";
 import Project from "../types/Project";
 import ConditionalAnchor from "./ConditionalAnchor";
 import { OrgLogo } from "./OrgLogo";
@@ -11,6 +12,8 @@ export function ProjectCardSm({
   project: Project;
   href: string;
 }) {
+  const navigate = useNavigate();
+
   return (
     <Card className="col p-0 m-2 fluid bg-dark align-content egCard">
       <Card.Header className="bg-light text-dark p-2 d-flex align-content-center justify-content-between">
@@ -33,8 +36,8 @@ export function ProjectCardSm({
           )}
           <a href={href} className="align-self-center">
             {/* <small> */}
-              {/* <i className="bi bi-arrows-fullscreen float-right ml-1"></i> */}
-              <i className="bi bi-aspect-ratio float-right ml-1"></i>
+            {/* <i className="bi bi-arrows-fullscreen float-right ml-1"></i> */}
+            <i className="bi bi-aspect-ratio float-right ml-1"></i>
             {/* </small> */}
           </a>
         </div>
@@ -42,8 +45,12 @@ export function ProjectCardSm({
       <a href={href}>
         <Card.Img variant="bottom" src={project.imgSrc} />
       </a>
-      <Card.Body>
-        {project.summary} <a href={`/#/projects/${project.id}`}>...</a>{" "}
+      <Card.Body
+        className="pe-auto"
+        style={{cursor: "pointer"}}
+        onClick={() => navigate(href.replace("/#", ""))}
+      >
+        {project.summary}
       </Card.Body>
       <Card.Footer className="bg-light p-2 text-muted d-flex justify-content-between">
         <div>
