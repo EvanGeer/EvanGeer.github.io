@@ -46,7 +46,7 @@ export function ProjectDetailCard({
           <i
             onClick={backRef}
             className="link-secondary fs-2 p-0 m-0 bi bi-x ml-1"
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
           ></i>
         </div>
       </div>

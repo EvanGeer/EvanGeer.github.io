@@ -38,16 +38,45 @@ export function TechStack({
   includeText?: boolean;
 }) {
   const logos = new Map<string, JSX.Element>([
-    [Tech.BOOTSTRAP, <LogoImg src={bootstrapLogo} alt={Tech.BOOTSTRAP} />],
-    [Tech.C_SHARP, <LogoImg src={cSharpLogo} alt={Tech.C_SHARP} />],
-    [Tech.FIREBASE, <LogoImg src={firebaseLogo} alt={Tech.FIREBASE} />],
-    [Tech.JAVA_SCRIPT, <LogoImg src={javaScriptLogo} alt={Tech.JAVA_SCRIPT} />],
-    [Tech.MS_SQL, <LogoImg src={sqlServerLogo} alt={Tech.MS_SQL} />],
-    [Tech.REACT, <LogoImg src={reactLogo} alt={Tech.REACT} />],
-    [Tech.REVIT, <LogoImg src={revitLogo} alt={Tech.REVIT} />],
-    [Tech.TYPE_SCRIPT, <LogoImg src={typeScriptLogo} alt={Tech.TYPE_SCRIPT} />],
-    [Tech.WPF, <LogoImg src={wpfLogo} alt={Tech.WPF} />],
-    [Tech.XAMARIN, <LogoImg src={xamarinLogo} alt={Tech.XAMARIN} />],
+    [
+      Tech.BOOTSTRAP,
+      <LogoImg key={Tech.BOOTSTRAP} src={bootstrapLogo} alt={Tech.BOOTSTRAP} />,
+    ],
+    [
+      Tech.C_SHARP,
+      <LogoImg key={Tech.C_SHARP} src={cSharpLogo} alt={Tech.C_SHARP} />,
+    ],
+    [
+      Tech.FIREBASE,
+      <LogoImg key={Tech.FIREBASE} src={firebaseLogo} alt={Tech.FIREBASE} />,
+    ],
+    [
+      Tech.JAVA_SCRIPT,
+      <LogoImg
+        key={Tech.JAVA_SCRIPT}
+        src={javaScriptLogo}
+        alt={Tech.JAVA_SCRIPT}
+      />,
+    ],
+    [
+      Tech.MS_SQL,
+      <LogoImg key={Tech.MS_SQL} src={sqlServerLogo} alt={Tech.MS_SQL} />,
+    ],
+    [Tech.REACT, <LogoImg key={Tech.REACT} src={reactLogo} alt={Tech.REACT} />],
+    [Tech.REVIT, <LogoImg key={Tech.REVIT} src={revitLogo} alt={Tech.REVIT} />],
+    [
+      Tech.TYPE_SCRIPT,
+      <LogoImg
+        key={Tech.TYPE_SCRIPT}
+        src={typeScriptLogo}
+        alt={Tech.TYPE_SCRIPT}
+      />,
+    ],
+    [Tech.WPF, <LogoImg key={Tech.WPF} src={wpfLogo} alt={Tech.WPF} />],
+    [
+      Tech.XAMARIN,
+      <LogoImg key={Tech.XAMARIN} src={xamarinLogo} alt={Tech.XAMARIN} />,
+    ],
   ]);
 
   function LogoImg({ src, alt }: { src: string; alt: string }) {
@@ -75,9 +104,8 @@ export function TechStack({
   }
   function LogoImgVertical({ src, alt }: { src: string; alt: string }) {
     return (
-      <div className={className + " d-flex"}>
+      <div key={`${alt}-${src}`} className={className + " d-flex"}>
         <img
-          key={`${alt}-${src}`}
           className="align-self-center"
           src={src}
           alt={alt}
@@ -93,11 +121,7 @@ export function TechStack({
   }
 
   function AltText({ text }: { text: string }) {
-    return (
-      <div className={" align-content-center d-flex ml-1"}>
-        {text}
-      </div>
-    );
+    return <div className={" align-content-center d-flex ml-1"}>{text}</div>;
   }
 
   return (

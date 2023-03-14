@@ -11,7 +11,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
   const OrgLogos = new Map<string, JSX.Element>([
     [Org.BC, <LogoImg src={BC_Logo} />],
     [Org.MIT_MERN, <LogoImg src={MITx_Logo}/>],
-    [Org.PERSONAL, <><HeadShot size={30} /> Personal</>],
+    [Org.PERSONAL, <div className="d-flex align-items-center"><HeadShot size={30} />{" "}Personal</div>],
     [Org.MSUITE, <ComboLogoImg />],
   ])
 

@@ -1,7 +1,7 @@
 import "../styles/style.css";
 import ProjectHighlights from "../components/ProjectHighlights";
 import { ProjectList } from "../components/ProjectList";
-import { Projects } from "./Projects";
+import { Projects } from "../components/Projects";
 
 
 function Home() {

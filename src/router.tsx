@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { Bio } from "./pages/Bio";
 import { ErrorNotFound } from "./pages/ErrorNotFound";
-import { Projects } from "./pages/Projects";
+import { Projects } from "./components/Projects";
 import { ProjectCard } from "./components/ProjectCard";
 import { ProjectDetailCard } from "./components/ProjectDetailCard";
 

@@ -1,3 +1,4 @@
+import fs from "fs";
 import { useEffect, useState } from "react";
 import {
   Dropdown,
@@ -8,8 +9,8 @@ import {
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import { useLocation, useParams } from "react-router-dom";
-import { ProjectCardSm } from "../components/ProjectCardSm";
-import { ProjectDetailCard } from "../components/ProjectDetailCard";
+import { ProjectCardSm } from "./ProjectCardSm";
+import { ProjectDetailCard } from "./ProjectDetailCard";
 import Project from "../types/Project";
 import { useNavigate } from "react-router-dom";
 
@@ -19,11 +20,13 @@ export function Projects() {
 
   const { id } = useParams();
   const [projects, setProjects] = useState<Project[]>(null);
+  const [projectsLoaded, setProjectsLoaded] = useState(new Date());
   const getProjectFromId = () => {
     if (!id || !(projects?.length ?? 0 > 0)) return null;
     const newProject = projects.find((x) => x.key === id);
     return newProject;
   };  
+  
   const [project, setProject] = useState<Project | null>(getProjectFromId());
   const [showDetail, setShowDetail] = useState(id !== null && project !== null);
   const handleClose = () => {
@@ -37,17 +40,37 @@ export function Projects() {
         Accept: "application/json",
       },
     })
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
         return response.json();
       })
-      .then(function (myJson) {
-        console.log(myJson);
-        setProjects(myJson?.projects);
-      });
+      .then((json) => {
+        console.log(json);
+        setProjects(json?.projects);
+        setProjectsLoaded(new Date());
+      })
   }, []);
+  
+  useEffect(() => {
+    // get markdown files
+    if(!(projects?.length > 0)) return;
 
+    let newProjects = [...projects];
 
+    projects.forEach(async (p,i) => {
+      const markdownFilePath = `../projects/${p.key}.md`;
+
+      await fetch(markdownFilePath)
+      .then((response) => response.text())
+      .then((text) => {
+        if(text.includes("<!DOCTYPE html>")) return;
+        const newProj = {...p, markdown: text};
+        newProjects[i] = newProj;
+      })
+    })
+    
+    setProjects(newProjects);
+  }, [projectsLoaded])
 
   useEffect(() => {
     const newProject = getProjectFromId();
@@ -64,6 +87,7 @@ export function Projects() {
           <ProjectCardSm
             project={p}
             href={`/#/projects/${p.key}`}
+            key={p.key}
             // href={`/#${location}${p.key}`}
           />
         ))

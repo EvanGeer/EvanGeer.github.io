@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": 1,
-      "key":"MSuite-DimensionEngine",
+      "key": "MSuite-DimensionEngine",
       "title": "Dimension Engine Rebuild",
       "org": "MSuite",
       "deployment": "https://www.msuite.com/product/bim/",
@@ -11,11 +11,11 @@
       "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
       "imgSrc": "../images/DimensionExample.png",
-      "highlight": true,
-      "markdown":"## Narrative:\n\nPrior to completing the project, the dimension logic was some of the most complex in the codebase. It was a mess of complex nested logic that only the most senior devs could untangle. The issue was that there was a lot of complexity in terms of how to identify which types of objects would receive which types of dimensions, where the dimensions needed be pulled from. For example, dimensions on straight components need to get pulled from the of the pipe if it is flanged, otherwise the center of the end fitting, but we need different specialized handling for different types of content that a use might have in their model.\n\nTo solve this problem, I built-out an OOP architecture that leveraged a Director and Abstract Builder. This allowed all the logic dividing up content types to be distributed to their appropriate Builder to be fully encapsulated within the Director. Then an abstract base class served as a Template for each of the Builders that would need to be build and allowed for a standardized procedure for getting all the data needed to build a dimension. This allowed the even more junior devs to simply implement the abstract class, and then they would only need to fill out the details for the various steps needed for that new dimension type. \n\n## Scope:\n\n- Refactor the code into a common design pattern to make it easier to work with\n- Add new dimension types\n   - Angle\n   - Rotation\n   - Overall Run\n   - Overall Edge to Edge\n   - Rolling Offset\n   - Duct Offset\n- Add a UI with options for each dimension type\n- Add images to demonstrate what to expect the selected options\n\n## Roles:\n- Designed the software architecture using UML, such that junior devs could easily build out new functionality\n- Implemented new functionality, working as player-coach to junior devs\n\n## License:\nPaid"   },
+      "highlight": true
+    },
     {
       "id": 2,
-      "key":"MSuite-SelectAllLike",
+      "key": "MSuite-SelectAllLike",
       "title": "Select All Like UI Overhaul",
       "org": "MSuite",
       "openSource": false,
@@ -28,7 +28,7 @@
     },
     {
       "id": 4,
-      "key":"BC-ComponentLibrary",
+      "key": "BC-ComponentLibrary",
       "title": "3D Component Library",
       "org": "BC",
       "openSource": false,
@@ -41,7 +41,7 @@
     },
     {
       "id": 5,
-      "key":"BC-DesignDataManager",
+      "key": "BC-DesignDataManager",
       "title": "Design Data Manager",
       "org": "BC",
       "openSource": false,
@@ -54,7 +54,7 @@
     },
     {
       "id": 8,
-      "key":"MITxMERN-BankApp",
+      "key": "MITxMERN-BankApp",
       "title": "Banking App Front End",
       "org": "MITxMERN",
       "openSource": true,
@@ -69,7 +69,7 @@
     },
     {
       "id": 6,
-      "key":"MITxMERN-BookSearch",
+      "key": "MITxMERN-BookSearch",
       "title": "Open Library Book Search",
       "org": "MITxMERN",
       "openSource": true,
@@ -84,7 +84,7 @@
     },
     {
       "id": 7,
-      "key":"MITxMERN-GameBoard",
+      "key": "MITxMERN-GameBoard",
       "title": "Flexible Game Board",
       "org": "MITxMERN",
       "openSource": true,
@@ -99,7 +99,7 @@
     },
     {
       "id": 9,
-      "key":"MITxMERN-PacMan",
+      "key": "MITxMERN-PacMan",
       "title": "PacMan Game",
       "org": "MITxMERN",
       "openSource": true,
@@ -115,7 +115,7 @@
     },
     {
       "id": 10,
-      "key":"MITxMERN-TransitTracker",
+      "key": "MITxMERN-TransitTracker",
       "title": "MBTA Transit Tracker",
       "org": "MITxMERN",
       "openSource": true,
@@ -130,7 +130,7 @@
     },
     {
       "id": 3,
-      "key":"EG-ScoreKeeper",
+      "key": "EG-ScoreKeeper",
       "title": "Score Keeper",
       "org": "Personal",
       "openSource": false,
@@ -142,7 +142,7 @@
     },
     {
       "id": 11,
-      "key":"MITxMERN-Eyes",
+      "key": "MITxMERN-Eyes",
       "title": "Eyes Animation",
       "org": "MITxMERN",
       "openSource": true,
