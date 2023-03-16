@@ -1,28 +1,5 @@
-import bootstrapLogo from "../images/tech/bootstrapLogo.png";
-import cSharpLogo from "../images/tech/cSharpLogo.png";
-import firebaseLogo from "../images/tech/firebaseLogo.png";
-import javaScriptLogo from "../images/tech/javaScriptLogo.png";
-import msSqlServerLogo from "../images/tech/msSqlServerLogo.png";
-import reactLogo from "../images/tech/reactLogo.png";
-import revitLogo from "../images/tech/revitLogo.png";
-import typeScriptLogo from "../images/tech/typeScriptLogo.png";
-import sqlServerLogo from "../images/tech/sqlServerLogo.png";
-import sqlLogo from "../images/tech/sqlLogo.png";
-import wpfLogo from "../images/tech/wpfLogo.png";
-import xamarinLogo from "../images/tech/xamarinLogo.svg";
+import TechLogos from "../types/TechLogos";
 
-enum Tech {
-  BOOTSTRAP = "Bootstrap",
-  C_SHARP = "C#",
-  FIREBASE = "Firebase",
-  MS_SQL = "SQL Server",
-  REACT = "React",
-  REVIT = "Revit",
-  TYPE_SCRIPT = "TypeScript",
-  JAVA_SCRIPT = "JavaScript",
-  WPF = "WPF",
-  XAMARIN = "Xamarin",
-}
 
 export function TechStack({
   techStack,
@@ -30,56 +7,25 @@ export function TechStack({
   size = 25,
   reversed = false,
   includeText = false,
+  onClicked = null,
 }: {
   techStack: string[];
   className?: string;
   size?: number;
   reversed?: boolean;
   includeText?: boolean;
+  onClicked?: (string: string) => void;
 }) {
-  const logos = new Map<string, JSX.Element>([
-    [
-      Tech.BOOTSTRAP,
-      <LogoImg key={Tech.BOOTSTRAP} src={bootstrapLogo} alt={Tech.BOOTSTRAP} />,
-    ],
-    [
-      Tech.C_SHARP,
-      <LogoImg key={Tech.C_SHARP} src={cSharpLogo} alt={Tech.C_SHARP} />,
-    ],
-    [
-      Tech.FIREBASE,
-      <LogoImg key={Tech.FIREBASE} src={firebaseLogo} alt={Tech.FIREBASE} />,
-    ],
-    [
-      Tech.JAVA_SCRIPT,
-      <LogoImg
-        key={Tech.JAVA_SCRIPT}
-        src={javaScriptLogo}
-        alt={Tech.JAVA_SCRIPT}
-      />,
-    ],
-    [
-      Tech.MS_SQL,
-      <LogoImg key={Tech.MS_SQL} src={sqlServerLogo} alt={Tech.MS_SQL} />,
-    ],
-    [Tech.REACT, <LogoImg key={Tech.REACT} src={reactLogo} alt={Tech.REACT} />],
-    [Tech.REVIT, <LogoImg key={Tech.REVIT} src={revitLogo} alt={Tech.REVIT} />],
-    [
-      Tech.TYPE_SCRIPT,
-      <LogoImg
-        key={Tech.TYPE_SCRIPT}
-        src={typeScriptLogo}
-        alt={Tech.TYPE_SCRIPT}
-      />,
-    ],
-    [Tech.WPF, <LogoImg key={Tech.WPF} src={wpfLogo} alt={Tech.WPF} />],
-    [
-      Tech.XAMARIN,
-      <LogoImg key={Tech.XAMARIN} src={xamarinLogo} alt={Tech.XAMARIN} />,
-    ],
-  ]);
 
-  function LogoImg({ src, alt }: { src: string; alt: string }) {
+  function LogoImg({
+    src,
+    alt,
+    includeText = false,
+  }: {
+    src: string;
+    alt: string;
+    includeText?: boolean;
+  }) {
     return includeText ? (
       <LogoImgVertical src={src} alt={alt} />
     ) : (
@@ -97,14 +43,18 @@ export function TechStack({
         title={alt}
         style={{
           height: `${size}px`,
-          // filter: " grayscale(100%)"
         }}
+        onClick={() => onClicked(alt)}
       />
     );
   }
   function LogoImgVertical({ src, alt }: { src: string; alt: string }) {
     return (
-      <div key={`${alt}-${src}`} className={className + " d-flex"}>
+      <div
+        key={`${alt}-${src}`}
+        className={className + " d-flex"}
+        onClick={() => onClicked(alt)}
+      >
         <img
           className="align-self-center"
           src={src}
@@ -112,7 +62,6 @@ export function TechStack({
           title={alt}
           style={{
             height: `${size}px`,
-            // filter: " grayscale(100%)"
           }}
         />
         {includeText ? <AltText text={alt} /> : null}
@@ -130,8 +79,8 @@ export function TechStack({
         ? techStack
             .sort()
             .reverse()
-            .map((tech) => logos.get(tech))
-        : techStack.sort().map((tech) => logos.get(tech))}
+            .map((tech) => TechLogos.get(tech))
+        : techStack.sort().map((tech) => <LogoImg alt={tech} key={tech} src={TechLogos.get(tech)} />)}
     </>
   );
 }

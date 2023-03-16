@@ -1,18 +1,14 @@
-import fs from "fs";
 import { useEffect, useState } from "react";
-import {
-  Dropdown,
-  Modal,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import { Collapse, Modal } from "react-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
 import { ProjectCardSm } from "./ProjectCardSm";
 import { ProjectDetailCard } from "./ProjectDetailCard";
 import Project from "../types/Project";
 import { useNavigate } from "react-router-dom";
+import { TechStack } from "./TechStack";
+import { TechTypes } from "../types/TechTypes";
+import Slicer from "./Slicer";
+import TechLogos from "../types/TechLogos";
 
 export function Projects() {
   const navigate = useNavigate();
@@ -25,13 +21,13 @@ export function Projects() {
     if (!id || !(projects?.length ?? 0 > 0)) return null;
     const newProject = projects.find((x) => x.key === id);
     return newProject;
-  };  
-  
+  };
+
   const [project, setProject] = useState<Project | null>(getProjectFromId());
   const [showDetail, setShowDetail] = useState(id !== null && project !== null);
   const handleClose = () => {
     navigate(-1);
-  }
+  };
 
   useEffect(() => {
     const json = fetch("../projects/projectData.json", {
@@ -48,29 +44,29 @@ export function Projects() {
         console.log(json);
         setProjects(json?.projects);
         setProjectsLoaded(new Date());
-      })
+      });
   }, []);
-  
+
   useEffect(() => {
     // get markdown files
-    if(!(projects?.length > 0)) return;
+    if (!(projects?.length > 0)) return;
 
     let newProjects = [...projects];
 
-    projects.forEach(async (p,i) => {
+    projects.forEach(async (p, i) => {
       const markdownFilePath = `../projects/${p.key}.md`;
 
       await fetch(markdownFilePath)
-      .then((response) => response.text())
-      .then((text) => {
-        if(text.includes("<!DOCTYPE html>")) return;
-        const newProj = {...p, markdown: text};
-        newProjects[i] = newProj;
-      })
-    })
-    
+        .then((response) => response.text())
+        .then((text) => {
+          if (text.includes("<!DOCTYPE html>")) return;
+          const newProj = { ...p, markdown: text };
+          newProjects[i] = newProj;
+        });
+    });
+
     setProjects(newProjects);
-  }, [projectsLoaded])
+  }, [projectsLoaded]);
 
   useEffect(() => {
     const newProject = getProjectFromId();
@@ -78,39 +74,62 @@ export function Projects() {
     setShowDetail(newProject !== null);
   }, [projects, id]);
 
+  const [selectedTech, setSelectedTech] = useState(new Map<string, boolean>());
+
   const getCards = () => {
     if (!projects) return <></>;
-    return (
-      projects
-        .filter((p) => !p.hide)
-        .map((p) => (
-          <ProjectCardSm
-            project={p}
-            href={`/#/projects/${p.key}`}
-            key={p.key}
-            // href={`/#${location}${p.key}`}
-          />
-        ))
-    );
+    return projects
+      .filter((p) => {
+        const show = !p.hide 
+        && (
+          Array.from(selectedTech.keys()).length === 0
+          || p.technologies.some((x) => selectedTech.get(x))
+          
+        );
+        return show;
+      })
+      .map((p) => (
+        <ProjectCardSm
+          project={p}
+          href={`/#/projects/${p.key}`}
+          key={p.key}
+          // href={`/#${location}${p.key}`}
+        />
+      ));
   };
 
-  return (
-    <div className="container">
-      <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
-        <div className="jumbotron ml-0 pt-4 pb-3 mb-0">
-          <Modal show={showDetail} onHide={handleClose} size="lg">
-            <ProjectDetailCard project={project} backRef={handleClose}/>
-          </Modal>
+  function handleSlicer(newSelectedTech: Map<string, boolean>) {
+    setSelectedTech(newSelectedTech);
+  }
 
-          <h3 className="display-5 text-dark" onClick={() => setProject(null)}>
-            Project Samples:
-          </h3>
-          {/* <TechStackSlicer  onSelectionChanged={() => ""}></TechStackSlicer> */}
-          <hr className="my-2" />
-          <div className="row row-cols-3 p-0 no-gutter">{getCards()}</div>
+  return (
+    <>
+      <Modal show={showDetail} onHide={handleClose} size="lg">
+        <ProjectDetailCard project={project} backRef={handleClose} />
+      </Modal>
+      <div className="container">
+        <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
+          <div className="jumbotron container m-0 ml-0 pt-2 pb-3 mb-0 ">
+            <div className="d-flex flex-wrap justify-items-center justify-content-between m-0 p-0">
+              <h3
+                className="display-5 text-dark mb-0"
+                onClick={() => setProject(null)}
+              >
+                Project Samples:
+              </h3>
+              <div className="m-0 p-0 d-flex flex-wrap float-right align-items-center">
+                <Slicer
+                  onSelectionChanged={handleSlicer}
+                  slicerItems={TechLogos}
+                />
+              </div>
+            </div>
+            <hr className="my-2" />
+            <div className="row row-cols-3 p-0 no-gutter">{getCards()}</div>
+          </div>
         </div>
+        <br />
       </div>
-      <br />
-    </div>
+    </>
   );
 }
