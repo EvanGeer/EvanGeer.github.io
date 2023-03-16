@@ -8,7 +8,7 @@
       "deployment": "https://www.msuite.com/product/bim/",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
-      "summary": "Refactored 4000+ lines of nest logic into abstract builder/director, allowing for greater extensibility and maintainability",
+      "summary": "Refactored 4000+ lines of nested logic into an abstract builder/director pattern, allowing for greater extensibility and maintainability",
       "details": "Additional Functionality: ",
       "imgSrc": "../images/DimensionExample.png",
       "highlight": true
