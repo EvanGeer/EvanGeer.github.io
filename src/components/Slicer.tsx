@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import "./Slicer.css";
 
 export default function Slicer({
@@ -8,13 +9,15 @@ export default function Slicer({
   slicerItems: Map<string, string>;
   onSelectionChanged: (selectedKeys: Map<string, boolean>) => void;
 }) {
-  const startingValues = Array.from(slicerItems?.keys()).map((x) => {
-    return {
-      key: x,
-      selected: false,
-      imgSrc: slicerItems.get(x),
-    };
-  });
+  const startingValues = Array.from(slicerItems?.keys())
+    .sort()
+    .map((x) => {
+      return {
+        key: x,
+        selected: false,
+        imgSrc: slicerItems.get(x),
+      };
+    });
 
   const [items, setItems] = useState(startingValues);
   const [nonSelected, setNoneSelected] = useState(true);
@@ -50,22 +53,27 @@ export default function Slicer({
     <>
       {items.map((item, index) => {
         return (
-          <div
-            key={item.key}
-            className={`${
-              !(nonSelected || item.selected) ? "deselected" : ""
-            } ${
-              item.selected ? "bg-white border" : ""
-            } slicerItem rounded ml-1 p-1`}
-            onClick={(e) => handleClick(e, item.key, index)}
+          <OverlayTrigger
+            overlay={<Tooltip id={`ToolTip-${item.key}`}>{item.key}</Tooltip>}
+            placement="bottom"
           >
-            <img
-              src={item.imgSrc}
-              title={item.key}
-              alt={item.key}
-              style={{ height: "30px", cursor: "pointer" }}
-            />
-          </div>
+            <div
+              key={item.key}
+              className={`${
+                !(nonSelected || item.selected) ? "deselected" : ""
+              } ${
+                item.selected ? "bg-white border" : ""
+              } slicerItem rounded ml-1 p-1`}
+              onClick={(e) => handleClick(e, item.key, index)}
+            >
+              <img
+                src={item.imgSrc}
+                // title={item.key}
+                alt={item.key}
+                style={{ height: "25px", cursor: "pointer" }}
+              />
+            </div>
+          </OverlayTrigger>
         );
       })}
     </>

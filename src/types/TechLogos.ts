@@ -1,3 +1,4 @@
+import autoCadP3dLogo from "../images/tech/plant3dLogo.png";
 import bootstrapLogo from "../images/tech/bootstrapLogo.png";
 import cSharpLogo from "../images/tech/cSharpLogo.png";
 import firebaseLogo from "../images/tech/firebaseLogo.png";
@@ -13,6 +14,7 @@ import xamarinLogo from "../images/tech/xamarinLogo.svg";
 import { TechTypes } from "./TechTypes";
 
   export default new Map<string, string>([
+    [TechTypes.AUTOCAD_P3D, autoCadP3dLogo],
     [TechTypes.BOOTSTRAP, bootstrapLogo],
     [TechTypes.C_SHARP, cSharpLogo],
     [TechTypes.FIREBASE, firebaseLogo],

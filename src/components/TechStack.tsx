@@ -1,5 +1,5 @@
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import TechLogos from "../types/TechLogos";
-
 
 export function TechStack({
   techStack,
@@ -16,7 +16,6 @@ export function TechStack({
   includeText?: boolean;
   onClicked?: (string: string) => void;
 }) {
-
   function LogoImg({
     src,
     alt,
@@ -35,37 +34,47 @@ export function TechStack({
 
   function LogoImgHorizontal({ src, alt }: { src: string; alt: string }) {
     return (
-      <img
-        key={`${alt}-${src}`}
-        className={className + " align-self-center"}
-        src={src}
-        alt={alt}
-        title={alt}
-        style={{
-          height: `${size}px`,
-        }}
-        onClick={() => onClicked(alt)}
-      />
+      <OverlayTrigger
+        overlay={<Tooltip id={`ToolTip-${alt}`}>{alt}</Tooltip>}
+        placement="bottom"
+      >
+        <img
+          key={`${alt}-${src}`}
+          className={className + " align-self-center"}
+          src={src}
+          alt={alt}
+          // title={alt}
+          style={{
+            height: `${size}px`,
+          }}
+          onClick={onClicked ? () => onClicked(alt) : null}
+        />
+      </OverlayTrigger>
     );
   }
   function LogoImgVertical({ src, alt }: { src: string; alt: string }) {
     return (
-      <div
-        key={`${alt}-${src}`}
-        className={className + " d-flex"}
-        onClick={() => onClicked(alt)}
+      <OverlayTrigger
+        overlay={<Tooltip id={`ToolTip-${alt}`}>{alt}</Tooltip>}
+        placement="bottom"
       >
-        <img
-          className="align-self-center"
-          src={src}
-          alt={alt}
-          title={alt}
-          style={{
-            height: `${size}px`,
-          }}
-        />
-        {includeText ? <AltText text={alt} /> : null}
-      </div>
+        <div
+          key={`${alt}-${src}`}
+          className={className + " d-flex"}
+          onClick={onClicked ? () => onClicked(alt) : null}
+        >
+          <img
+            className="align-self-center"
+            src={src}
+            alt={alt}
+            // title={alt}
+            style={{
+              height: `${size}px`,
+            }}
+          />
+          {includeText ? <AltText text={alt} /> : null}
+        </div>
+      </OverlayTrigger>
     );
   }
 
@@ -80,7 +89,13 @@ export function TechStack({
             .sort()
             .reverse()
             .map((tech) => TechLogos.get(tech))
-        : techStack.sort().map((tech) => <LogoImg alt={tech} key={tech} src={TechLogos.get(tech)} />)}
+            .filter((x) => x)
+        : techStack
+            .sort()
+            .map((tech) => (
+              <LogoImg alt={tech} key={tech} src={TechLogos.get(tech)} />
+            ))
+            .filter((x) => x)}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Collapse, Modal } from "react-bootstrap";
+import { Col, Collapse, Modal } from "react-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
 import { ProjectCardSm } from "./ProjectCardSm";
 import { ProjectDetailCard } from "./ProjectDetailCard";
@@ -75,17 +75,17 @@ export function Projects() {
   }, [projects, id]);
 
   const [selectedTech, setSelectedTech] = useState(new Map<string, boolean>());
+  const [filter, setFilter] = useState(false);
 
   const getCards = () => {
     if (!projects) return <></>;
     return projects
       .filter((p) => {
-        const show = !p.hide 
-        && (
-          Array.from(selectedTech.keys()).length === 0
-          || p.technologies.some((x) => selectedTech.get(x))
-          
-        );
+        const show =
+          !p.hide && (
+          // !filter ||
+            Array.from(selectedTech.keys()).length === 0 ||
+            p.technologies.some((x) => selectedTech.get(x)));
         return show;
       })
       .map((p) => (
@@ -117,12 +117,37 @@ export function Projects() {
               >
                 Project Samples:
               </h3>
-              <div className="m-0 p-0 d-flex flex-wrap float-right align-items-center">
-                <Slicer
-                  onSelectionChanged={handleSlicer}
-                  slicerItems={TechLogos}
-                />
-              </div>
+              <div className={`m-0 p-0 d-flex flex-wrap float-right border align-items-center ${filter ? "border" : ""} rounded`}>
+                {/* <Collapse in={filter}> */}
+                  <div id="example-fade-text">
+                    <div
+                      className="d-flex flex-row flex-wrap p-0 m-0"
+                      id="example-fade-text"
+                    >
+                      <Slicer
+                        onSelectionChanged={handleSlicer}
+                        slicerItems={TechLogos}
+                      />
+                      {/* <h3>|</h3> */}
+                    </div>
+                  </div>
+                {/* </Collapse>
+                <div
+                  className="link-secondary h2 m-0 p-0 ms-1 me-1"
+                  onClick={() => {
+                    setFilter(!filter);
+                  }}
+                  aria-controls="example-fade-text"
+                  aria-expanded={filter}
+                >
+                  {filter ? (
+                    <i className="bi bi-x-square" />
+                  ) : (
+                    <i className="bi bi-funnel" />
+                    )}
+                    </div>{" "}
+                  */}
+              </div> 
             </div>
             <hr className="my-2" />
             <div className="row row-cols-3 p-0 no-gutter">{getCards()}</div>
