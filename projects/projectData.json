@@ -45,12 +45,12 @@
       "title": "Design Data Manager",
       "org": "BC",
       "openSource": false,
-      "technologies": ["C#", "WPF", "SQL Server", "Revit"],
-      "summary": "text",
+      "technologies": ["C#", "WPF", "SQL Server", "Revit", "Plant 3D"],
+      "summary": "Architected solution and led team to build a data management suite that improved interdisciplinary coordination between engineering and ensured data consistency between disparate engineering and design software.",
       "details": "...",
-      "imgSrc": "../images/SelectAllLike.jpg",
+      "imgSrc": "../images/BC-DDM.png",
       "highlight": true,
-      "hide": true
+      "hide": false
     },
     {
       "id": 8,

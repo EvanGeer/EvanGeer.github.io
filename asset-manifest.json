@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.09cfa5ce.css",
-    "main.js": "/static/js/main.81bf8d35.js",
+    "main.css": "/static/css/main.9b386409.css",
+    "main.js": "/static/js/main.3aba7aec.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/reactLogo.png": "/static/media/reactLogo.c6597d31e23cd452204b.png",
     "static/media/bootstrapLogo.png": "/static/media/bootstrapLogo.430491e6a02f91bf55d6.png",
@@ -17,12 +17,12 @@
     "static/media/reactLogo.svg": "/static/media/reactLogo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "static/media/xamarinLogo.svg": "/static/media/xamarinLogo.8b0d58bbddbc6fe483fea443c0d1f0f8.svg",
-    "main.09cfa5ce.css.map": "/static/css/main.09cfa5ce.css.map",
-    "main.81bf8d35.js.map": "/static/js/main.81bf8d35.js.map",
+    "main.9b386409.css.map": "/static/css/main.9b386409.css.map",
+    "main.3aba7aec.js.map": "/static/js/main.3aba7aec.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09cfa5ce.css",
-    "static/js/main.81bf8d35.js"
+    "static/css/main.9b386409.css",
+    "static/js/main.3aba7aec.js"
   ]
 }
