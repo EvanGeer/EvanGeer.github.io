@@ -17,7 +17,8 @@
 .slicerItem::after {
     content: "";
     border-radius: 5px;
-    position: absolute;
+    /* position: absolute; */
+    background-color: white;
     z-index: -1;
     top: 0;
     left: 0;
@@ -33,6 +34,8 @@
     -webkit-transform: scale(1.1, 1.1);
     transform: scale(1.1, 1.1);
     opacity: 100%;
+    background-color: white;
+    box-shadow:  #00000055 4px 4px 12px;
 
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
