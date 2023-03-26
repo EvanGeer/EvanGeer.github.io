@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9b386409.css",
-    "main.js": "/static/js/main.bf6dab1d.js",
+    "main.js": "/static/js/main.d3c3ca97.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/reactLogo.png": "/static/media/reactLogo.c6597d31e23cd452204b.png",
     "static/media/bootstrapLogo.png": "/static/media/bootstrapLogo.430491e6a02f91bf55d6.png",
@@ -18,11 +18,11 @@
     "index.html": "/index.html",
     "static/media/xamarinLogo.svg": "/static/media/xamarinLogo.8b0d58bbddbc6fe483fea443c0d1f0f8.svg",
     "main.9b386409.css.map": "/static/css/main.9b386409.css.map",
-    "main.bf6dab1d.js.map": "/static/js/main.bf6dab1d.js.map",
+    "main.d3c3ca97.js.map": "/static/js/main.d3c3ca97.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9b386409.css",
-    "static/js/main.bf6dab1d.js"
+    "static/js/main.d3c3ca97.js"
   ]
 }
