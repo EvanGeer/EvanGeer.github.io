@@ -56,9 +56,9 @@ export default function Slicer({
           <OverlayTrigger
             overlay={<Tooltip id={`ToolTip-${item.key}`}>{item.key}</Tooltip>}
             placement="bottom"
+            key={item.key}
           >
             <div
-              key={item.key}
               className={`${
                 !(nonSelected || item.selected) ? "deselected" : ""
               } ${
