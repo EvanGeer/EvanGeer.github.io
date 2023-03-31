@@ -17,7 +17,7 @@ export function MainNav() {
         <Container className="">
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Brand href="/">
-            <HeadShot size={40} />
+            <HeadShot size={40} className="rounded-circle me-2" />
             Evan Geer
           </Navbar.Brand>
           {/* <Navbar.Collapse id="basic-navbar-nav">
