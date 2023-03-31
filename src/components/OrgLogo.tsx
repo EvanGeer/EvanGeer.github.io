@@ -13,6 +13,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
     [Org.MIT_MERN, <LogoImg src={MITx_Logo}/>],
     [Org.PERSONAL, <div className="d-flex align-items-center"><HeadShot size={30} />{" "}Personal</div>],
     [Org.MSUITE, <ComboLogoImg />],
+    [Org.DEWALT, <LogoImg src={DeWalt_Logo}/>],
   ])
 
     function LogoImg({src}: {src:string}) {

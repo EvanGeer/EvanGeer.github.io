@@ -43,7 +43,7 @@ export function ProjectDetailCard({
   });
 
   const PreviousNextButtons = ({ children = null }) => {
-    const linkClass = "h4 link-secondary";
+    const linkClass = "h5 link-secondary";
     return (
       <Row className="fluid align-content-center justify-content-between d-flex m-0 mt-1 p-0 ps-1 pe-1">
         <div
