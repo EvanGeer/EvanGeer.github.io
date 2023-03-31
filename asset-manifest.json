@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9b386409.css",
-    "main.js": "/static/js/main.396ea243.js",
+    "main.js": "/static/js/main.5afd211c.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/reactLogo.png": "/static/media/reactLogo.c6597d31e23cd452204b.png",
     "static/media/bootstrapLogo.png": "/static/media/bootstrapLogo.430491e6a02f91bf55d6.png",
@@ -13,16 +13,17 @@
     "static/media/typeScriptLogo.png": "/static/media/typeScriptLogo.52ea0bc40ba11d507e7d.png",
     "static/media/javaScriptLogo.png": "/static/media/javaScriptLogo.062825dbceed44567e91.png",
     "static/media/sbd_logo_square.png": "/static/media/sbd_logo_square.7beccd880cc4254e7dfd.png",
+    "static/media/dewalt.jpeg": "/static/media/dewalt.acbd3e439e7f6442ec32.jpeg",
     "static/media/cSharpLogo.png": "/static/media/cSharpLogo.8030bd2eabe8c748410b.png",
     "static/media/reactLogo.svg": "/static/media/reactLogo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "static/media/xamarinLogo.svg": "/static/media/xamarinLogo.8b0d58bbddbc6fe483fea443c0d1f0f8.svg",
     "main.9b386409.css.map": "/static/css/main.9b386409.css.map",
-    "main.396ea243.js.map": "/static/js/main.396ea243.js.map",
+    "main.5afd211c.js.map": "/static/js/main.5afd211c.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9b386409.css",
-    "static/js/main.396ea243.js"
+    "static/js/main.5afd211c.js"
   ]
 }
