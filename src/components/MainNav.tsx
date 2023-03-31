@@ -10,7 +10,7 @@ import mailIcon from "../images/Mail_ru_black.png";
 import { LinkContainer } from "react-router-bootstrap";
 import { HeadShot } from "./HeadShot";
 
-export function MainNav() {
+export function MainNav() { 
   return (
     <>
       <Navbar bg="light" expand="lg" className="sticky-top mb-4">
