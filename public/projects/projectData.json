@@ -166,6 +166,21 @@
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-Eyes",
       "deployment": "https://evangeer.github.io/MITxMERN-Eyes/"
+    },
+    {
+      "id": 12,
+      "key": "MS_App_Asmbly_Mgr",
+      "title": "Assembly Manager",
+      "org": "Personal",
+      "openSource": true,
+      "technologies": ["C#", "Revit"],
+      "summary": "Quick burn interview project. I intentionaly highlighted my approach to Revit API work. In particular: - IExternalCommand.Execute serves as a Procedural outline \n - Each step in the procedure has its own dev command for integration testing\n\n - Any functional logic is abstracted out so that it can be unit tested. ",
+      "details": "...",
+      "imgSrc": "../images/AssemblyManger.png",
+      "highlight": true,
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/AssemblyMgrEG",
+      "deployment": "https://github.com/EvanGeer/AssemblyMgrEG"
     }
   ]
 }

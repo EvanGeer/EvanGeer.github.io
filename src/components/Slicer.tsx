@@ -63,7 +63,7 @@ export default function Slicer({
                 !(nonSelected || item.selected) ? "deselected" : ""
               } ${
                 item.selected ? "bg-white border" : ""
-              } slicerItem rounded ml-1 p-1`}
+              } slicerItem rounded p-1`}
               onClick={(e) => handleClick(e, item.key, index)}
             >
               <img

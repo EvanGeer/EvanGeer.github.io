@@ -7,6 +7,7 @@ import Project from "../types/Project";
 import { useNavigate } from "react-router-dom";
 import Slicer from "./Slicer";
 import TechLogos from "../types/TechLogos";
+import gitHubLogo from "../images/Github_black.png";
 
 export function Projects() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export function Projects() {
 
   const { id } = useParams();
   const [projects, setProjects] = useState<Project[]>(null);
-  const [markdown, setMarkdown] = useState(new Map<string,string>());
+  const [markdown, setMarkdown] = useState(new Map<string, string>());
   const [projectsLoaded, setProjectsLoaded] = useState(false);
   const [markdownLoaded, setMarkdownLoaded] = useState(false);
 
@@ -27,8 +28,6 @@ export function Projects() {
 
   const [project, setProject] = useState<Project | null>(getProjectFromId());
   const [showDetail, setShowDetail] = useState(id !== null && project !== null);
-
-
 
   const getProjects = () => {
     const json = fetch("../projects/projectData.json", {
@@ -43,7 +42,7 @@ export function Projects() {
       })
       .then((json) => {
         console.log(json);
-        setProjects(json?.projects?.filter(x => !x.hide));
+        setProjects(json?.projects?.filter((x) => !x.hide));
         setProjectsLoaded(true);
       });
   };
@@ -54,7 +53,7 @@ export function Projects() {
   const getMarkdownFiles = async () => {
     if (!(projects?.length > 0)) return;
 
-    const markdownFiles = new Map<string,string>();
+    const markdownFiles = new Map<string, string>();
 
     for (const p of projects) {
       const markdownFilePath = `../projects/${p.key}.md`;
@@ -67,7 +66,7 @@ export function Projects() {
           // newProjects[i] = newProj;
           // const newProj = { ...p, markdown: text };
         });
-    };
+    }
 
     setMarkdown(markdownFiles);
     setMarkdownLoaded(true);
@@ -81,9 +80,9 @@ export function Projects() {
 
     if (!(markdownLoaded && projectsLoaded)) return;
 
-    const newProjects = projects.map((p:Project) => {
-      return { markdown: markdown.get(p.key), ...p }
-    })
+    const newProjects = projects.map((p: Project) => {
+      return { markdown: markdown.get(p.key), ...p };
+    });
 
     setProjects(newProjects);
     // getMarkdownFiles
@@ -96,6 +95,7 @@ export function Projects() {
   }, [projects, id]);
 
   const [selectedTech, setSelectedTech] = useState(new Map<string, boolean>());
+  const [openSourceOnly, setOpenSourceOnly] = useState(false);
   const [filter, setFilter] = useState(false);
 
   const getCards = () => {
@@ -105,6 +105,7 @@ export function Projects() {
         const show =
           !p.hide &&
           // !filter ||
+          (!openSourceOnly || p.openSource) &&
           (Array.from(selectedTech.keys()).length === 0 ||
             p.technologies.some((x) => selectedTech.get(x)));
         return show;
@@ -123,19 +124,23 @@ export function Projects() {
     setSelectedTech(newSelectedTech);
   }
 
+  function handleSourceSlicer(newSelectedTech: Map<string, boolean>) {
+    setOpenSourceOnly(!openSourceOnly);
+  }
+
   const handleClose = () => {
     navigate("/");
   };
 
   const goToNext = () => {
-    const next = projects.findIndex(x => x.id === project.id) + 1
+    const next = projects.findIndex((x) => x.id === project.id) + 1;
     if (next < projects.length) navigate(`/projects/${projects[next].key}`);
-  }
-  
+  };
+
   const goToPrevious = () => {
-    const previous = projects.findIndex(x => x.id === project.id) - 1
+    const previous = projects.findIndex((x) => x.id === project.id) - 1;
     if (previous >= 0) navigate(`/projects/${projects[previous].key}`);
-  }
+  };
 
   return (
     <>
@@ -160,25 +165,46 @@ export function Projects() {
               >
                 Project Samples:
               </h3>
-              <div
-                className={`m-0 p-0 d-flex flex-wrap float-right border align-items-center ${
-                  filter ? "border" : ""
-                } rounded`}
-              >
-                {/* <Collapse in={filter}> */}
-                <div id="example-fade-text">
-                  <div
-                    className="d-flex flex-row flex-wrap p-0 m-0"
-                    id="example-fade-text"
-                  >
-                    <Slicer
-                      onSelectionChanged={handleSlicer}
-                      slicerItems={TechLogos}
-                    />
-                    {/* <h3>|</h3> */}
+              <div>
+                <div
+                  className={`m-0 p-0 ms-1 d-flex flex-wrap float-right border border-secondary align-items-center ${
+                    filter ? "border" : ""
+                  } rounded`}
+                >
+                  <div id="example-fade-text">
+                    <div
+                      className="d-flex flex-row flex-wrap p-0 m-0"
+                      id="example-fade-text"
+                    >
+                      <Slicer
+                        onSelectionChanged={handleSourceSlicer}
+                        slicerItems={
+                          new Map<string, string>([["OpenSource", gitHubLogo]])
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
-                {/* </Collapse>
+                <div
+                  className={`m-0 p-0 d-flex flex-wrap float-right border border-secondary align-items-center ${
+                    filter ? "border" : ""
+                  } rounded`}
+                >
+                  {/* <Collapse in={filter}> */}
+                  <div id="example-fade-text">
+                    <div
+                      className="d-flex flex-row flex-wrap p-0 m-0"
+                      id="example-fade-text"
+                    >
+                      <Slicer
+                        onSelectionChanged={handleSlicer}
+                        slicerItems={TechLogos}
+                      />
+                      {/* <h3>|</h3> */}
+                    </div>
+                  </div>
+
+                  {/* </Collapse>
                 <div
                   className="link-secondary h2 m-0 p-0 ms-1 me-1"
                   onClick={() => {
@@ -194,6 +220,7 @@ export function Projects() {
                     )}
                     </div>{" "}
                   */}
+                </div>
               </div>
             </div>
             <hr className="my-2" />
