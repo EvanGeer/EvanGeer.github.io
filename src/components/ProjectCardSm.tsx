@@ -4,6 +4,7 @@ import Project from "../types/Project";
 import ConditionalAnchor from "./ConditionalAnchor";
 import { OrgLogo } from "./OrgLogo";
 import { TechStack } from "./TechStack";
+import { useState } from "react";
 
 export function ProjectCardSm({
   project,
@@ -13,9 +14,16 @@ export function ProjectCardSm({
   href: string;
 }) {
   const navigate = useNavigate();
+  const [img, setImg] = useState(project.imgSrc);
+
+  const showAnimation = () =>
+    setImg(project?.mouseOverImgSrc ?? project.imgSrc);
+  const showStatic = () => setImg(project.imgSrc);
 
   return (
-    <Card className="col p-0 m-2 fluid bg-dark align-content egCard">
+    <Card className="col p-0 m-2 fluid bg-dark align-content egCard" 
+    onMouseOver={showAnimation}
+    onMouseOut={showStatic}>
       <Card.Header className="bg-light text-dark p-2 d-flex align-content-center justify-content-between">
         {project.title}
         <div className="d-flex align-content-center">
@@ -43,11 +51,11 @@ export function ProjectCardSm({
         </div>
       </Card.Header>
       <a href={href}>
-        <Card.Img variant="bottom" src={project.imgSrc} />
+        <Card.Img variant="bottom" src={img} />
       </a>
       <Card.Body
         className="pe-auto"
-        style={{cursor: "pointer"}}
+        style={{ cursor: "pointer" }}
         onClick={() => navigate(href.replace("/#", ""))}
       >
         {project.summary}

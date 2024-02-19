@@ -3,6 +3,7 @@ import MITx_Logo from "../images/orgs/mitx-pro-logo.png"
 // import BC_Logo from "../images/brown-and-caldwell-logo.webp"
 import BC_Logo from "../images/orgs/Brown-and-Caldwell.jpg"
 import SBD_Logo from "../images/orgs/sbd_logo_square.png";
+import Kc_Logo from "../images/orgs/kitconnect.png";
 import MSuite_Logo from "../images/orgs/msuite.png";
 import Org from "../types/Org";
 import { HeadShot } from "./HeadShot";
@@ -13,6 +14,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
     [Org.MIT_MERN, <LogoImg src={MITx_Logo}/>],
     [Org.PERSONAL, <div className="d-flex align-items-center"><HeadShot size={30} />{" "}Personal</div>],
     [Org.MSUITE, <ComboLogoImg />],
+    [Org.KitConnect, <LogoImg src={Kc_Logo}/>],
     [Org.DEWALT, <LogoImg src={DeWalt_Logo}/>],
   ])
 

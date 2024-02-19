@@ -84,7 +84,7 @@ export function ProjectDetailCard({
         </Row>
       </div>
       <Card.Header className="bg-light text-dark pl-2 pr-2 pt-0 pb-2">
-        <Image fluid src={project.imgSrc} thumbnail className="mt-0" />
+        <Image fluid src={project.mouseOverImgSrc ?? project.imgSrc} thumbnail className="mt-0" />
       </Card.Header>
       <Card.Body className="bg-dark">
         <Detail title="Tech">
