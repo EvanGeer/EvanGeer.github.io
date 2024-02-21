@@ -107,7 +107,7 @@
       "details": "...",
       "imgSrc": "../images/OpenLibrary.png",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-BookSearch",
       "deployment": "https://evangeer.github.io/MITxMERN-BookSearch/"
     },
@@ -122,7 +122,7 @@
       "details": "...",
       "imgSrc": "../images/TicTacToe.png",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/tic-tac-toe",
       "deployment": "https://evangeer.github.io/tic-tac-toe/"
     },
@@ -138,7 +138,7 @@
       "imgSrc": "../images/pacman-v-kirby.png",
       "mouseOverImgSrc": "../images/PacManAnimated.gif",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-PacMan",
       "deployment": "https://evangeer.github.io/MITxMERN-PacMan"
     },
@@ -167,6 +167,7 @@
       "summary": "Simple score keeping app for board games or sports.",
       "details": "...",
       "imgSrc": "../images/egGame.png",
+      "hide": true,
       "highlight": false
     },
     {

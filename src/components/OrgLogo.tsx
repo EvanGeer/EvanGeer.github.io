@@ -22,7 +22,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
       return <img
       src={src}
       className={className}
-      style={{ height: "30px" }}
+      style={{ height: "50px" }}
     />              
     }
 
@@ -33,7 +33,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
                 <img
           src={MSuite_Logo}
           className={className}
-          style={{ height: "30px", paddingRight:"4px", borderRight: "darkgray 1px solid" }}
+          style={{ height: "50px", paddingRight:"4px", borderRight: "darkgray 1px solid" }}
           />{" "}
           {/* <img
           src={DeWalt_Logo}
@@ -43,7 +43,7 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
         <img
           src={SBD_Logo}
           className={className}
-          style={{ height: "30px"}}
+          style={{ height: "50px"}}
           />
           
         </>     );

@@ -38,8 +38,8 @@ const Link = ({ to, Icon, text }: { to: string; Icon: Icon; text: string }) => {
 
 const navLinks = [
   <Link to={"/"} text="Home" Icon={House} />,
-  <Link to={"/blog"} text="Blog" Icon={JustifyLeft} />,
-  <Link to={"/projects"} text="Projects" Icon={CodeSlash} />,
+  <Link to={"/codesamples"} text="Code Samples" Icon={CodeSlash} />,
+  <Link to={"/projects"} text="Projects" Icon={JournalCode} />,
   <Link to={"/contact"} text="Contact" Icon={Send} />,
 ];
 

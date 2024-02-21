@@ -54,7 +54,7 @@ export default function Slicer({
       {items.map((item, index) => {
         return (
           <OverlayTrigger
-            overlay={<Tooltip id={`ToolTip-${item.key}`}>{item.key}</Tooltip>}
+            overlay={<Tooltip style={{position: "fixed"}} id={`ToolTip-${item.key}`}>{item.key}</Tooltip>}
             placement="bottom"
             key={item.key}
           >

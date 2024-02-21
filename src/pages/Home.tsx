@@ -3,24 +3,32 @@ import eg from "../images/EG.png";
 import { MainContainer } from "./MainContainer";
 
 export function Home() {
-  const [section, setSection] = useState("");
+  const [topic, setTopic] = useState("");
 
-  
+  const Link = ({ color, text }) => {
+    const activeColor = text === topic ? color : "muted";
+    const setActive = () => setTopic(topic === text ? "" : text);
+
+    return (
+      <>
+        <a
+          href="#"
+          onClick={setActive}
+          className={`display-4 text-${activeColor} mt-2 link-${color}`}
+        >
+          {text}
+        </a>
+        <br />
+      </>
+    );
+  };
 
   return (
     <>
       <MainContainer>
-        <a href="#" className="display-4 text-muted mt-2 link-primary">
-          Leadership
-        </a>
-        <br />
-        <a href="#" className="display-4 text-muted mt-2 link-warning">
-          Vision
-        </a>
-        <br />
-        <a href="#" className="display-4 text-muted mt-2 link-success">
-          Excellence
-        </a>
+        <Link text={"Leadership"} color={"primary"} />
+        <Link text={"Vision"} color={"warning"} />
+        <Link text={"Excellence"} color={"success"} />
         <p className="text-light mt-1 ms-1" style={{ fontSize: 18 }}>
           Leader in engineering, software, and construction with a passion for
           scaling agile teams and driving excellence. Diverse background with
@@ -32,11 +40,11 @@ export function Home() {
         </p>
       </MainContainer>
 
-      <div className="d-flex d-md-none justify-items-start border border-2 m-1 rounded-5 overflow-hidden shadow row">
-        <h3 className="text-secondary p-3 border-bottom w-100 border-1 bg-black text-center">
+      <div className="d-flex d-md-none justify-items-start m-1 mt-4 rounded-5 overflow-hidden shadow row">
+        <h3 className="text-secondary p-3 w-100 bg-black text-center">
           Leadership | Vision | Execution
         </h3>{" "}
-        <div className="row m-0 p-0 border-bottom border-1">
+        <div className="row m-0 p-0">
           <img
             src={eg}
             width={"100%"}

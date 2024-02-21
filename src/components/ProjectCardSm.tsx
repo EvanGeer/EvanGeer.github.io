@@ -5,6 +5,7 @@ import ConditionalAnchor from "./ConditionalAnchor";
 import { OrgLogo } from "./OrgLogo";
 import { TechStack } from "./TechStack";
 import { useState } from "react";
+import { Github, Link45deg } from "react-bootstrap-icons";
 
 export function ProjectCardSm({
   project,
@@ -21,15 +22,17 @@ export function ProjectCardSm({
   const showStatic = () => setImg(project.imgSrc);
 
   return (
-    <Card className="col p-0 m-2 fluid bg-dark align-content egCard" 
-    onMouseOver={showAnimation}
-    onMouseOut={showStatic}>
+    <Card
+      className="rounded-3 border-0 overflow-hidden col p-0 m-2 fluid bg-dark align-content egCard"
+      onMouseOver={showAnimation}
+      onMouseOut={showStatic}
+    >
       <Card.Header className="bg-light text-dark p-2 d-flex align-content-center justify-content-between">
         {project.title}
         <div className="d-flex align-content-center">
           {project.deployment ? (
             <a href={project.deployment}>
-              <i className="bi bi-link-45deg float-right ml-1"></i>
+              <Link45deg size={20} />
             </a>
           ) : (
             <></>
@@ -37,7 +40,8 @@ export function ProjectCardSm({
 
           {project.openSource ? (
             <a href={project.repo}>
-              <i className="bi bi-github float-right ml-1"></i>
+              <Github />
+              {/* <i className="bi bi-github float-right ml-1"></i> */}
             </a>
           ) : (
             <></>
@@ -54,7 +58,7 @@ export function ProjectCardSm({
         <Card.Img variant="bottom" src={img} />
       </a>
       <Card.Body
-        className="pe-auto"
+        className="pe-auto bg-light text-dark"
         style={{ cursor: "pointer" }}
         onClick={() => navigate(href.replace("/#", ""))}
       >
