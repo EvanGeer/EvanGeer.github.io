@@ -6,6 +6,7 @@ import { ProjectCard } from "./components/ProjectCard";
 import { ProjectDetailCard } from "./components/ProjectDetailCard";
 import { Contact } from "./components/Contact";
 import { Home } from "./pages/Home";
+import { EG } from "./components/three/EG";
 
 export function Router() {
   return (
@@ -14,7 +15,7 @@ export function Router() {
     <Route path="*" element={<ErrorNotFound />} />
     
     {/* Main Routes */}
-    <Route path="/" element={<Home/>}/>
+    <Route path="/" element={<EG/>}/>
     <Route path="/bio" element={<Bio/>} />
     <Route path="/contact" element={<Contact/>} />
     <Route path="/projects" element={<Projects />} />

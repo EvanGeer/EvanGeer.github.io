@@ -1,13 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useLoader, Canvas, useFrame } from "@react-three/fiber";
-import { Euler, Mesh, MeshStandardMaterial, Vector3 } from "three";
+import { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Euler, Mesh, Vector3 } from "three";
 import {
   Center,
   CycleRaycast,
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
-import { OBJLoader } from "three/examples/jsm/Addons.js";
 import { Button, Modal, Spinner } from "react-bootstrap";
 import {
   Github,
@@ -16,123 +15,11 @@ import {
   StackOverflow,
   XLg,
 } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
+import { ProjectDetailCard } from "../ProjectDetailCard";
+import Project from "../../types/Project";
+import { Obj } from "./Obj";
 
-function Scene({
-  objFile,
-  rotation,
-  onClick,
-  onHover,
-}: {
-  objFile: string;
-  rotation: [number, number, number];
-  onClick?: () => void;
-  onHover?: (hovered: boolean) => void;
-}) {
-  const [scale, setScale] = useState(1);
-  const [hovered, setHover] = useState(false);
-  const [rotated, setRotated] = useState(false);
-
-  useEffect(() => {
-    setRotated(false);
-  }, [rotation]);
-
-  const obj = useMemo(() => getEgLogo(), []);
-  obj.scale.set(scale * 0.1, scale * 0.1, scale * 0.1);
-
-  function getEgLogo() {
-    const obj = useLoader(OBJLoader, objFile);
-    obj.rotation.set(rotation[0], rotation[1], rotation[2]);
-    // if (!rotated) obj.rotateX(rotation);
-    // setRotated(true);
-
-    return obj;
-  }
-
-  useEffect(() => {
-    // if (onClick === undefined) return;
-    obj.traverse(function (child: Mesh) {
-      const texture = new MeshStandardMaterial();
-      texture.metalness = 0.7;
-      texture.roughness = 0.25;
-      // texture.color.set("#00FF00");
-      texture.opacity = 0;
-      // texture.wireframe = true;
-      texture.color.set(
-        onClick ? (hovered ? "#81bffc" : "#97cafc") : undefined
-      );
-      // texture.met
-      if (child.isMesh) {
-        child.material = texture;
-      }
-    });
-    if (onHover) onHover(hovered);
-  }, [hovered]);
-
-  return (
-    <mesh
-      onClick={onClick}
-      onPointerOver={() => setHover(true)}
-      onPointerOut={() => setHover(false)}
-    >
-      <primitive object={obj} style={{ cursor: "pointer" }} />
-      {/* <meshStandardMaterial color={"red"} /> */}
-    </mesh>
-  );
-}
-
-function Box(props: any) {
-  // This reference will give us direct access to the mesh
-  const meshRef = useRef<Mesh>();
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame(
-    (state, delta) =>
-      meshRef.current?.rotation?.x && (meshRef.current.rotation.x += delta)
-  );
-  // Return view, these are regular three.js elements expressed in JSX
-  return (
-    <mesh
-      {...props}
-      ref={meshRef}
-      scale={active ? 5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
-    >
-      <cylinderGeometry />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-    </mesh>
-  );
-}
-function Timeline(props: any) {
-  // This reference will give us direct access to the mesh
-  const meshRef = useRef<Mesh>();
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame(
-    (state, delta) =>
-      meshRef.current?.rotation?.x && (meshRef.current.rotation.x += delta)
-  );
-  // Return view, these are regular three.js elements expressed in JSX
-  return (
-    <mesh
-      {...props}
-      ref={meshRef}
-      scale={[0.01, 10, 0.01]}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
-      rotation={[0, 0, Math.PI / 2]}
-    >
-      <cylinderGeometry />
-      <meshStandardMaterial color={hovered ? "orange" : "gray"} />
-    </mesh>
-  );
-}
 
 export const EG = () => {
   // const [cameraPos, setCameraPos] = useState(new Vector3(-5, 5, 7));
@@ -140,21 +27,77 @@ export const EG = () => {
   const [show, setShow] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [cursor, setCursor] = useState("default");
+  const [project, setProject] = useState<Project>(undefined);
+  const [projects, setProjects] = useState<Project[]>(null);
+  const [projectsLoaded, setProjectsLoaded] = useState(false);
+
+  const navigate = useNavigate();
+
+  // move to functional module
+  const getProjectFromId = (id: string | number) => {
+    if (!id || !(projects?.length ?? 0 > 0)) return null;
+    const newProject = projects.find((x) => x.key === id);
+    return newProject;
+  };
+
+  const getProjects = () => {
+    fetch("./projects/projectData.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        setProjects(json?.projects?.filter((x) => !x.hide));
+        setProjectsLoaded(true);
+      });
+  };
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  const showModal = (projectKey: string) => {
+    const project = getProjectFromId(projectKey);
+    console.log(project);
+    setProject(project);
+    setShow(true);
+  };
 
   const onHover = (hovered: boolean) => {
     setCursor(hovered ? "pointer" : "default");
   };
 
+  const goToNext = () => {
+    const next = projects.findIndex((x) => x.id === project.id) + 1;
+    if (next < projects.length) navigate(`/projects/${projects[next].key}`);
+  };
+
+  const goToPrevious = () => {
+    const previous = projects.findIndex((x) => x.id === project.id) - 1;
+    if (previous >= 0) navigate(`/projects/${projects[previous].key}`);
+  };
   return (
     <>
-      <Modal show={show} onExit={() => setShow(false)}>
-        <Modal.Title onClick={() => setShow(false)}>
-          <div>
-            TEST
-
-          </div>
-        </Modal.Title>
+      {/* {project && ( */}
+      <Modal
+        show={show && project !== undefined}
+        onHide={() => setShow(false)}
+        size="lg"
+      >
+        <ProjectDetailCard
+          project={project}
+          onClose={() => setShow(false)}
+          key={project?.id}
+          goToPrevious={goToPrevious}
+          goToNext={goToNext}
+        />
       </Modal>
+      {/* )} */}
       <div
         style={{
           overflow: "none",
@@ -202,42 +145,41 @@ export const EG = () => {
             intensity={Math.PI}
           />
           <Center>
-            <Scene objFile="./EGLogo.obj" rotation={[-Math.PI / 2, 0, 0]} />
-            <Scene
+            <Obj objFile="./EGLogo.obj" rotation={[-Math.PI / 2, 0, 0]} />
+            <Obj
               objFile="./ProjectPiping.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
-              onClick={() => setShow(true)}
+            <Obj
+              onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
               objFile="./Personal.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
-              onClick={() => setShow(true)}
+            <Obj
               onHover={onHover}
               objFile="./BIMDexter.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
-              onClick={() => setShow(true)}
+            <Obj
+              onClick={() => showModal("BC-DesignDataManager")}
               onHover={onHover}
               objFile="./BrownAndCaldwell.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
+            <Obj
               onClick={() => setShow(true)}
               onHover={onHover}
               objFile="./MSUITE.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
+            <Obj
               onClick={() => setShow(true)}
               onHover={onHover}
               objFile="./KitConnect.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Scene
+            <Obj
               onClick={() => setShow(true)}
               onHover={onHover}
               objFile="./DeWalt.obj"

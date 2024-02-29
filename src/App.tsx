@@ -1,14 +1,14 @@
 import './App.css'
-import { EG } from './components/three/EG';
+import { HashRouter } from "react-router-dom";
+import { Router } from "./router";
 
 function App() {
 
 
   return (
-    <div>
-      <EG/>
-      {/* <canvas id="egScene" /> */}
-    </div>
+    <HashRouter>
+      <Router />
+    </HashRouter>
   )
 }
 
