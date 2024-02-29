@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Euler, Mesh, Vector3 } from "three";
+import { OBJLoader, MTLLoader } from "three/examples/jsm/Addons.js";
+
 import {
   Center,
   CycleRaycast,
@@ -20,7 +22,6 @@ import { ProjectDetailCard } from "../ProjectDetailCard";
 import Project from "../../types/Project";
 import { Obj } from "./Obj";
 
-
 export const EG = () => {
   // const [cameraPos, setCameraPos] = useState(new Vector3(-5, 5, 7));
   // console.log("rendering", cameraPos);
@@ -30,6 +31,14 @@ export const EG = () => {
   const [project, setProject] = useState<Project>(undefined);
   const [projects, setProjects] = useState<Project[]>(null);
   const [projectsLoaded, setProjectsLoaded] = useState(false);
+
+  const [materials, setMaterials] = useState<MTLLoader.MaterialCreator>();
+  const mtlLoader = new MTLLoader();
+
+  mtlLoader.load("./materials.mtl", (mtl) => {
+    mtl.preload();
+    setMaterials(mtl);
+  });
 
   const navigate = useNavigate();
 
@@ -144,50 +153,89 @@ export const EG = () => {
             decay={0}
             intensity={Math.PI}
           />
-          <Center>
-            <Obj objFile="./EGLogo.obj" rotation={[-Math.PI / 2, 0, 0]} />
+          <Center position={[0,0.5,0]}>
+            <Obj
+              objFile="./EGLogo.obj"
+              rotation={[-Math.PI / 2, 0, 0]}
+              mtl={materials}
+            />
             <Obj
               objFile="./ProjectPiping.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
+              // onClick={() => showModal("MITxMERN-BankApp")}
+              onHover={onHover}
+              objFile="./iPersonal_BudgePro.obj"
+              mtl={materials}
+              rotation={[-Math.PI / 2, 0, 0]}
+            />
+            <Obj
               onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
-              objFile="./Personal.obj"
+              objFile="./iPersonal_FiReactBank.obj"
+              mtl={materials}
+              rotation={[-Math.PI / 2, 0, 0]}
+            />
+            <Obj
+              onClick={() => showModal("MS_App_Asmbly_Mgr")}
+              onHover={onHover}
+              objFile="./iPersonal_AssemblyMgr.obj"
+              mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onHover={onHover}
+              // onClick={() => setShow(true)}
+              mtl={materials}
               objFile="./BIMDexter.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
-              onClick={() => showModal("BC-DesignDataManager")}
+              onClick={() => showModal("MSuite-DimensionEngine")}
               onHover={onHover}
-              objFile="./BrownAndCaldwell.obj"
+              mtl={materials}
+              objFile="./iMSUITE_Dimensions.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
-              onClick={() => setShow(true)}
+              onClick={() => showModal("MSuite-SelectAllLike")}
               onHover={onHover}
-              objFile="./MSUITE.obj"
+              mtl={materials}
+              objFile="./iMSUITE_SelectAllLike.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
-              onClick={() => setShow(true)}
+              onClick={() => showModal("KitConnect")}
+              mtl={materials}
               onHover={onHover}
               objFile="./KitConnect.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
-              onClick={() => setShow(true)}
+              onClick={() => showModal("DeWALT-HWP")}
               onHover={onHover}
               objFile="./DeWalt.obj"
+              mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
-          </Center>
+            <Obj
+              onClick={() => showModal("BC-DesignDataManager")}
+              onHover={onHover}
+              objFile="./iBC_DDM.obj"
+              mtl={materials}
+              rotation={[-Math.PI / 2, 0, 0]}
+            />
+            <Obj
+              onClick={() => showModal("BC-ComponentLibrary")}
+              onHover={onHover}
+              objFile="./iBC_ERC.obj"
+              mtl={materials}
+              rotation={[-Math.PI / 2, 0, 0]}
+            />
           {/* <Timeline position={[0, -1, 3]} /> */}
           <OrbitControls onEnd={(e) => console.log(e)} />
+          </Center>
         </Canvas>
         <div
           className="h3 d-flex p-3 overflow-none  w-100 align-self-top mb-auto align-items-center"
@@ -205,13 +253,31 @@ export const EG = () => {
               </span>
             </div>
             <div className="d-flex m-0 p-0 h4 pe-3 text-light align-items-center">
-              {/* <Button className="p-0 rounded-circle m-0"> */}
               <span className="opacity-25 me-2 d-none d-sm-flex">contact:</span>
-              <Linkedin className="m-2" />
-              {/* </Button> */}
-              <Github className="m-2" />
-              <StackOverflow className="m-2" />
-              <Medium className="m-2" />
+              <a
+                href="https://www.linkedin.com/in/evangeer/"
+                className="link-light"
+              >
+                <Linkedin className="m-2" />
+              </a>
+              <a
+                href="https://github.com/EvanGeer"
+                className="link-light"
+              >
+                <Github className="m-2" />
+              </a>
+              <a
+                href="https://stackoverflow.com/users/15534202/egeer"
+                className="link-light"
+              >
+                <StackOverflow className="m-2" />
+              </a>
+              <a
+                href="https://medium.com/@evangeer"
+                className="link-light"
+              >
+                <Medium className="m-2" />
+              </a>
             </div>
           </div>
         </div>
