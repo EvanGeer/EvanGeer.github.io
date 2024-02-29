@@ -17,6 +17,7 @@ export function ProjectCardNew({
   project: Project;
   href: string;
 }) {
+  const imgLeft = index % 2 === 0;
   const navigate = useNavigate();
   const [img, setImg] = useState(project.imgSrc);
 
@@ -26,33 +27,26 @@ export function ProjectCardNew({
 
   const ImageColumn = () => {
     return (
-      <div className="m-0 p-0 d-flex align-items-top">
-        <img
-          src={project.imgSrc}
-          height={"50%"}
-          width={"50%"}
-          style={{
-            objectFit: "scale-down",
-          }}
-        />
-        {/* className={`mb-auto rounded-4 ${index % 2 === 0 && "ms-auto"} p-0 align-self-top`} */}
+      <div className="bg-white d-flex">
+        <img src={project.imgSrc} width={"400"} className="d-flex mt-auto mb-auto" />
       </div>
     );
   };
 
   const TextColumn = () => {
     return (
-      <div
-        className={`${
-          index % 2 && "text-right"
-        } bg-black bg-opacity-50 align-items-stretch`}
-      >
-        <span className="h3 text-muted">{project.title}</span>
-
-        <br />
-        <TechStack techStack={project.technologies} />
-        <br />
-        {project.summary}
+      <div className={`p-2 d-flex flex-column bg-black text-light`}>
+        <div className={`d-flex ${!imgLeft && "justify-content-end"}`}>
+          <OrgLogo
+            org={project.org}
+            className={project.org === Org.MIT_MERN && " pe-1 ps-1"}
+          />
+        </div>
+        <div className={`d-flex ${!imgLeft && "justify-content-end"} h2 text-muted smaller`}>{project.title}</div>
+        <div className={`d-flex ${!imgLeft && "text-end"} `}>{project.summary}</div>
+        <div className={`d-flex ${!imgLeft && "justify-content-end"} mt-auto`}>
+          <TechStack techStack={project.technologies} />
+        </div>
       </div>
     );
   };
@@ -72,23 +66,18 @@ export function ProjectCardNew({
     //     </>
     //   )}
     // </div>
-    <div className="d-flex align-items-stretch rounded-4 mt-2 mb-4 overflow-hidden">
-      <div className="bg-warning">
-        <img src={project.imgSrc} width={"400"} />
-      </div>
-      <div className="p-2 d-flex flex-column bg-white text-dark">
-        <div>
-          <OrgLogo
-            org={project.org}
-            className={project.org === Org.MIT_MERN && "bg-white pe-1 ps-1"}
-          />
-        </div>
-        <div className=" h2 text-muted smaller">{project.title}</div>
-        <div className="">{project.summary}</div>
-        <div className=" mt-auto">
-          <TechStack techStack={project.technologies} />
-        </div>
-      </div>
+    <div className="d-flex align-items-stretch rounded-4 mt-5 mb-5 overflow-hidden">
+      {imgLeft ? (
+        <>
+          <ImageColumn />
+          <TextColumn />
+        </>
+      ) : (
+        <>
+          <TextColumn />
+          <ImageColumn />
+        </>
+      )}{" "}
     </div>
   );
 }
