@@ -1,7 +1,39 @@
 {
   "projects": [
+    
     {
-      "id": 10,
+      "id": 1337.1,
+      "key": "BIMdexter",
+      "title": "BIMdexter",
+      "org": "BIMdexter",
+      "comingSoon": true,
+      "openSource": true,
+      "technologies": ["C#", "Revit", "React", "Firebase", "WPF", "TypeScript"],
+      "summary": "As Co-Founder and Chief Architect, I built the full web stack from the ground up.",
+      "details": "...",
+      "imgSrc": "../images/AssemblyManger.png",
+      "mouseOverImgSrc": "../images/BIMdexter_Animated.gif",
+      "highlight": true,
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/AssemblyMgrEG",
+      "deployment": "https://github.com/EvanGeer/AssemblyMgrEG"
+    },
+    {
+      "id": 4000.1,
+      "key": "KitConnect",
+      "title": "KitConnect",
+      "org": "KC",
+      "openSource": false,
+      "technologies": ["C#", "WPF", "Revit"],
+      "summary": "Re-architected several key structures, including Revit year handling, overall MVVM pattern, and authentication.",
+      "details": "...",
+      "imgSrc": "../images/KitConnectSample1.webp",
+      "mouseOverImgSrc": "../images/KitConnect_Animated.gif",
+      "deployment": "https://www.kitconnect.com/",
+      "highlight": true
+    },
+    {
+      "id": 3100.1,
       "key": "DeWALT-HWP",
       "title": "DeWALT HangerWorks Pro",
       "org": "DEWALT",
@@ -14,7 +46,7 @@
       "highlight": true
     },
     {
-      "id": 1,
+      "id": 3000.1,
       "key": "MSuite-DimensionEngine",
       "title": "Dimension Engine Rebuild",
       "org": "MSuite",
@@ -27,7 +59,7 @@
       "highlight": true
     },
     {
-      "id": 4,
+      "id": 2000.2,
       "key": "BC-ComponentLibrary",
       "title": "3D Component Library",
       "org": "BC",
@@ -35,12 +67,12 @@
       "technologies": ["C#", "WPF", "SQL Server", "Revit"],
       "summary": "Led Reusable Content team to build out component library of 10,000+ Revit families and design modules, including Revit add-in for cut sheets and standardized dimensions pulled from an Azure hosted SQL Server.",
       "details": "...",
-      "imgSrc": "../images/BC_ERC.png",
+      "imgSrc": "../images/EnterpriseReusableContent.gif",
       "highlight": true,
       "hide": false
     },
     {
-      "id": 2,
+      "id": 3000.2,
       "key": "MSuite-SelectAllLike",
       "title": "Select All Like UI Overhaul",
       "org": "MSuite",
@@ -49,11 +81,12 @@
       "summary": "Refactored UI into MVVM pattern with more modular and componentized controls and vastly expanded functionality to improve efficiency and productivity of users.",
       "details": "...",
       "imgSrc": "../images/SelectAllLike.png",
+      "mouseOverImgSrc": "../images/SelectAllLike_Animated.gif",
       "deployment": "https://www.msuite.com/product/bim/",
       "highlight": true
     },
     {
-      "id": 5,
+      "id": 2000.1,
       "key": "BC-DesignDataManager",
       "title": "Design Data Manager",
       "org": "BC",
@@ -62,11 +95,12 @@
       "summary": "Architected solution and led team to build a data management suite that improved interdisciplinary coordination between engineering and ensured data consistency between disparate engineering and design software.",
       "details": "...",
       "imgSrc": "../images/BC-DDM.png",
+      "mouseOverImgSrc": "../images/BC-DDM_Animated.gif",
       "highlight": true,
       "hide": false
     },
     {
-      "id": 8,
+      "id": 8000.3,
       "key": "MITxMERN-BankApp",
       "title": "Banking App",
       "org": "MITxMERN",
@@ -91,7 +125,7 @@
       "details": "...",
       "imgSrc": "../images/OpenLibrary.png",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-BookSearch",
       "deployment": "https://evangeer.github.io/MITxMERN-BookSearch/"
     },
@@ -106,7 +140,7 @@
       "details": "...",
       "imgSrc": "../images/TicTacToe.png",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/tic-tac-toe",
       "deployment": "https://evangeer.github.io/tic-tac-toe/"
     },
@@ -120,8 +154,9 @@
       "summary": "Create PacMan and Kirby sprites, and let them battle for supremacy! This project illustrates some dynamic interaction with the DOM as well as some physical space awareness.",
       "details": "...",
       "imgSrc": "../images/pacman-v-kirby.png",
+      "mouseOverImgSrc": "../images/PacManAnimated.gif",
       "highlight": false,
-      "hide": false,
+      "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-PacMan",
       "deployment": "https://evangeer.github.io/MITxMERN-PacMan"
     },
@@ -150,6 +185,7 @@
       "summary": "Simple score keeping app for board games or sports.",
       "details": "...",
       "imgSrc": "../images/egGame.png",
+      "hide": true,
       "highlight": false
     },
     {
@@ -166,6 +202,21 @@
       "hide": true,
       "repo": "https://github.com/EvanGeer/MITxMERN-Eyes",
       "deployment": "https://evangeer.github.io/MITxMERN-Eyes/"
+    },
+    {
+      "id": 8000.1,
+      "key": "AssemblyManager",
+      "title": "Assembly Manager",
+      "org": "Personal",
+      "openSource": true,
+      "technologies": ["C#", "Revit", "WPF"],
+      "summary": "Quick burn interview project. I intentionaly highlighted my approach to Revit API work. In particular: - IExternalCommand.Execute serves as a Procedural outline \n - Each step in the procedure has its own dev command for integration testing\n\n - Any functional logic is abstracted out so that it can be unit tested. ",
+      "details": "...",
+      "imgSrc": "../images/AssemblyManagerAnimated.gif",
+      "highlight": true,
+      "hide": false,
+      "repo": "https://github.com/EvanGeer/AssemblyMgrEG",
+      "deployment": "https://github.com/EvanGeer/AssemblyMgrEG"
     }
   ]
 }
