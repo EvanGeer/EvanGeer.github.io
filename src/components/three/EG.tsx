@@ -36,7 +36,7 @@ export const EG = () => {
   const [materials, setMaterials] = useState<MTLLoader.MaterialCreator>();
   const mtlLoader = new MTLLoader();
 
-  mtlLoader.load("./materials.mtl", (mtl) => {
+  mtlLoader.load("./obj/materials.mtl", (mtl) => {
     mtl.preload();
     setMaterials(mtl);
   });
@@ -209,32 +209,32 @@ export const EG = () => {
           />
           <Center position={[0, 0.75, 0]}>
             <Obj
-              objFile="./EGLogo.obj"
+              objFile="./obj/EGLogo.obj"
               rotation={[-Math.PI / 2, 0, 0]}
               mtl={materials}
             />
             <Obj
-              objFile="./ProjectPiping.obj"
+              objFile="./obj/ProjectPiping.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             {/* <Obj
               // onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
-              objFile="./iPersonal_BudgePro.obj"
+              objFile="./obj/iPersonal_BudgePro.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             /> */}
             <Obj
               onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
-              objFile="./iPersonal_FiReactBank.obj"
+              objFile="./obj/iPersonal_FiReactBank.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("AssemblyManager")}
               onHover={onHover}
-              objFile="./iPersonal_AssemblyMgr.obj"
+              objFile="./obj/iPersonal_AssemblyMgr.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
@@ -242,48 +242,48 @@ export const EG = () => {
               onHover={onHover}
               onClick={() => showModal("BIMdexter")}
               mtl={materials}
-              objFile="./BIMDexter.obj"
+              objFile="./obj/BIMDexter.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("MSuite-DimensionEngine")}
               onHover={onHover}
               mtl={materials}
-              objFile="./iMSUITE_Dimensions.obj"
+              objFile="./obj/iMSUITE_Dimensions.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("MSuite-SelectAllLike")}
               onHover={onHover}
               mtl={materials}
-              objFile="./iMSUITE_SelectAllLike.obj"
+              objFile="./obj/iMSUITE_SelectAllLike.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("KitConnect")}
               mtl={materials}
               onHover={onHover}
-              objFile="./KitConnect.obj"
+              objFile="./obj/KitConnect.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("DeWALT-HWP")}
               onHover={onHover}
-              objFile="./DeWalt.obj"
+              objFile="./obj/DeWalt.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("BC-DesignDataManager")}
               onHover={onHover}
-              objFile="./iBC_DDM.obj"
+              objFile="./obj/iBC_DDM.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
               onClick={() => showModal("BC-ComponentLibrary")}
               onHover={onHover}
-              objFile="./iBC_ERC.obj"
+              objFile="./obj/iBC_ERC.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />

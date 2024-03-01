@@ -1,26 +1,11 @@
-import { NavbarBrand } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
-import gitHubLogo from "../images/Github_black.png";
-import linkInLogo from "../images/LinkedIN_black.png";
-import stackOverflowLogo from "../images/stack.svg";
-import mailIcon from "../images/Mail_ru_black.png";
-import { LinkContainer } from "react-router-bootstrap";
-import { HeadShot } from "./HeadShot";
 import {
-  CardHeading,
   CodeSlash,
-  Github,
   House,
   Icon,
   JournalCode,
-  JustifyLeft,
-  Linkedin,
   Send,
-  StackOverflow,
 } from "react-bootstrap-icons";
 
 const Link = ({ to, Icon, text }: { to: string; Icon: Icon; text: string }) => {

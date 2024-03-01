@@ -1,4 +1,4 @@
-import { Button, Card, Image, Row } from "react-bootstrap";
+import { Button as button, Card, Image, Row } from "react-bootstrap";
 import Project from "../types/Project";
 import { OrgLogo } from "./OrgLogo";
 import { TechStack } from "./TechStack";
@@ -65,13 +65,13 @@ export function ProjectDetailCard({
             <div className="align-self-center d-flex m-auto">
               {project.title}
             </div>
-            <Button
+            <button
               onClick={onClose}
-              variant="light"
-              className="link-secondary d-flex p-1 m-2"
+              // variant="light"
+              className="btn btn-light link-secondary text-dark d-flex p-1 m-2"
             >
               <XLg size={24} />
-            </Button>
+            </button>
           </div>
         </div>
       </div>
@@ -120,13 +120,19 @@ export function ProjectDetailCard({
       </Card.Body>
       <Card.Footer className="m-0 pb-0 p-2 sticky-bottom bg-dark">
         <div className="align-content-center justify-content-between d-flex m-0 mt-1 p-0 mb-2">
-          <Button onClick={() => goToPrevious()} variant="outline-secondary" className="m-0 d-flex">
-            <ChevronDoubleLeft className="m-auto"/>
-          </Button>
+          <button
+            onClick={() => goToPrevious()}
+            className="m-0 d-flex btn btn-outline-secondary"
+          >
+            <ChevronDoubleLeft className="m-auto" />
+          </button>
 
-          <Button onClick={() => goToNext()} variant="outline-secondary" className="m-0 d-flex">
+          <button
+            onClick={() => goToPrevious()}
+            className="m-0 d-flex btn btn-outline-secondary"
+          >
             <ChevronDoubleRight className="m-auto" />
-          </Button>
+          </button>
         </div>
       </Card.Footer>
     </Card>

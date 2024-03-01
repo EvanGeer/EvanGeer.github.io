@@ -3,10 +3,10 @@ import {
   Github, Linkedin, Medium,
   StackOverflow
 } from "react-bootstrap-icons";
-import LinkedinLogo from "../../images/LinkedIn_icon_circle.svg";
-import Stack from "../../images/StackOverflow.png";
+
 
 export function Socials() {
+  const btnClass = "p-0 m-1 d-flex btn btn-dark rounded-circle";
   return <div
     className="h3 d-flex p-3 overflow-none  w-100 align-self-top mb-auto align-items-center"
     style={{ position: "absolute" }}
@@ -24,22 +24,26 @@ export function Socials() {
       <div className="d-flex m-0 p-0 h4 pe-1 text-light align-items-center">
         <span className="opacity-50 me-2 d-none d-sm-flex">contact:</span>
 
-        <Button
+        <a
           href="https://linkedin.com/in/EvanGeer"
           target="new"
-          className="p-0 m-1 d-flex rounded-circle"
+          // className="p-0 m-1 d-flex btn btn-dark rounded-circle"
+          className={btnClass}
+
           style={{ height: 34, width: 34 }}
-          variant="dark"
+          // variant="dark"
         >
           {/* <img src={LinkedinLogo} height={25} className="m-auto" /> */}
           {/* <Linkedin className="m-1 rounded-circle bg-dark" color="white" size={24} /> */}
           <Linkedin className="rounded-1 m-auto" size={22} />
-        </Button>
-        <Button
+        </a>
+        <a
           href="https://github.com/EvanGeer"
           target="new"
-          className="p-0 m-1 d-flex rounded-circle"
-          variant="dark"
+          // className="p-0 m-1 d-flex btn-dark btn"
+          className={btnClass}
+
+          // variant="dark"
           style={{ height: 34, width: 34 }}
         >
           <Github
@@ -49,28 +53,31 @@ export function Socials() {
         size={24}
         color="white"
       /> */}
-        </Button>
-        <Button
+        </a>
+        <a
           href="https://stackoverflow.com/users/15534202/egeer"
-          className="p-0 m-1 d-flex rounded-circle hover-primary"
+          // className="p-0 m-1 d-flex link-light"
           target="new"
-          variant="dark"
+          className={btnClass}
+
+          // variant="dark"
           style={{ height: 34, width: 34 }}
         >
           {/* <img src={Stack} height={30} className="m-auto" /> */}
           <StackOverflow className="m-auto" size={20} />
-        </Button>
-        <Button
+        </a>
+        <a
           href="https://medium.com/@evangeer"
-          className="p-0 m-1 d-flex rounded-circle"
+          // className="p-0 m-1 d-flex link-light"
           target="new"
-          variant="dark"
+          className={btnClass}
+          // variant="dark"
         >
           {/* </a> */}
           {/* <a href="https://medium.com/@evangeer" className="link-light"> */}
           <Medium className="m-1" size={24} />
           {/* </a> */}
-        </Button>
+        </a>
       </div>
     </div>
   </div>;
