@@ -14,4 +14,5 @@ export default interface Project {
   repo: string;
   deployment: string;
   markdown: string;
+  comingSoon?: boolean;
 }

@@ -6,5 +6,6 @@ enum Org {
   MSUITE = "MSuite",
   PERSONAL = "Personal",
   DEWALT = "DEWALT",
+  BIMdexter = "BIMdexter",
 }
 export default Org;

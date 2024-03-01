@@ -46,28 +46,12 @@ export function ProjectDetailCard({
     preventScrollOnSwipe: true,
   });
 
-  const PreviousNextButtons = ({ children = null }) => {
-    const linkClass = "h5 link-secondary";
-    return (
-      <div className="align-content-center justify-content-between d-flex m-0 mt-1 p-0 ps-1 pe-1">
-        <div
-          style={{ cursor: "pointer" }}
-          className={linkClass}
-          onClick={goToPrevious}
-        >
-          <ChevronDoubleLeft />
-        </div>
-        <div>{children}</div>
-        <div
-          style={{ cursor: "pointer" }}
-          className={linkClass}
-          onClick={goToNext}
-        >
-          <ChevronDoubleRight />
-        </div>
-      </div>
-    );
-  };
+  // const PreviousNextButtons = ({ children = null }) => {
+  //   const linkClass = "h5 link-secondary";
+  //   return (
+
+  //   );
+  // };
 
   return (
     <Card className="bg-opacity-0 align-content border-0 bg-dark" {...handlers}>
@@ -107,25 +91,43 @@ export function ProjectDetailCard({
             size={25}
           />
         </Detail>
-        <div className="d-flex flex-wrap align-items-center">
-          <div className="d-flex align-self-center p-0 m-0">
-            <h5 className="opacity-50 m-0 me-2">{project.title}:</h5>
-          </div>
-          <div className="d-flex fs-6 text-wrap">
-            <CleanLink href={project.deployment} />
-          </div>
-        </div>{" "}
-        {/* <Detail title="Site">
-          <CleanLink href={project.deployment} />
-        </Detail> */}
-        <Detail title="Repo">
-          <CleanLink href={project.repo} />
-        </Detail>
+        {project.comingSoon ? (
+          <h5 className="text-secondary mt-2">Coming Soon...</h5>
+        ) : (
+          <>
+            <div className="d-flex flex-wrap align-items-center">
+              <div className="d-flex align-self-center p-0 m-0">
+                <h5 className="opacity-50 m-0 me-2">Site:</h5>
+              </div>
+              <div className="d-flex fs-6 text-wrap">
+                <CleanLink href={project.deployment} />
+              </div>
+            </div>
+            {project.openSource && (
+              <div className="d-flex flex-wrap align-items-center">
+                <div className="d-flex align-self-center p-0 m-0">
+                  <h5 className="opacity-50 m-0 me-2">Repo:</h5>
+                </div>
+                <div className="d-flex fs-6 text-wrap">
+                  <CleanLink href={project.repo} />
+                </div>
+              </div>
+            )}
+          </>
+        )}
         <hr className="border-secondary" />
         <ReactMarkdown>{project.markdown}</ReactMarkdown>
       </Card.Body>
       <Card.Footer className="m-0 pb-0 p-2 sticky-bottom bg-dark">
-        <PreviousNextButtons />
+        <div className="align-content-center justify-content-between d-flex m-0 mt-1 p-0 mb-2">
+          <Button onClick={() => goToPrevious()} variant="outline-secondary" className="m-0 d-flex">
+            <ChevronDoubleLeft className="m-auto"/>
+          </Button>
+
+          <Button onClick={() => goToNext()} variant="outline-secondary" className="m-0 d-flex">
+            <ChevronDoubleRight className="m-auto" />
+          </Button>
+        </div>
       </Card.Footer>
     </Card>
   );

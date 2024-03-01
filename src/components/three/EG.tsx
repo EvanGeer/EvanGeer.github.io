@@ -9,18 +9,16 @@ import {
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
-import { Button, Modal, Spinner } from "react-bootstrap";
+import { Modal, Spinner } from "react-bootstrap";
 import {
-  Github,
   Linkedin,
-  Medium,
-  StackOverflow,
   XLg,
 } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import { ProjectDetailCard } from "../ProjectDetailCard";
 import Project from "../../types/Project";
 import { Obj } from "./Obj";
+import { Socials } from "./Socials";
 
 export const EG = () => {
   // const [cameraPos, setCameraPos] = useState(new Vector3(-5, 5, 7));
@@ -34,7 +32,6 @@ export const EG = () => {
 
   const [markdown, setMarkdown] = useState(new Map<string, string>());
   const [markdownLoaded, setMarkdownLoaded] = useState(false);
-
 
   const [materials, setMaterials] = useState<MTLLoader.MaterialCreator>();
   const mtlLoader = new MTLLoader();
@@ -108,7 +105,11 @@ export const EG = () => {
       })
       .then((json) => {
         console.log(json);
-        setProjects(json?.projects?.filter((x) => !x.hide));
+        const activeProjects = json?.projects
+          ?.filter((x) => !x.hide)
+          .sort((x: Project, y: Project) => x.id - y.id);
+        console.log(activeProjects);
+        setProjects(activeProjects);
         setProjectsLoaded(true);
       });
   };
@@ -128,14 +129,21 @@ export const EG = () => {
   };
 
   const goToNext = () => {
+    if (!projects) return;
     const next = projects.findIndex((x) => x.id === project.id) + 1;
-    if (next < projects.length) navigate(`/projects/${projects[next].key}`);
+    setProject(next < projects.length ? projects[next] : projects[0]);
+    // if (next < projects.length) navigate(`/projects/${projects[next].key}`);
   };
 
   const goToPrevious = () => {
+    if (!projects) return;
     const previous = projects.findIndex((x) => x.id === project.id) - 1;
-    if (previous >= 0) navigate(`/projects/${projects[previous].key}`);
+    setProject(
+      previous >= 0 ? projects[previous] : projects[projects.length - 1]
+    );
+    // if (previous >= 0) navigate(`/projects/${projects[previous].key}`);
   };
+
   return (
     <>
       {/* {project && ( */}
@@ -199,7 +207,7 @@ export const EG = () => {
             decay={0}
             intensity={Math.PI}
           />
-          <Center position={[0,0.75,0]}>
+          <Center position={[0, 0.75, 0]}>
             <Obj
               objFile="./EGLogo.obj"
               rotation={[-Math.PI / 2, 0, 0]}
@@ -209,13 +217,13 @@ export const EG = () => {
               objFile="./ProjectPiping.obj"
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            <Obj
+            {/* <Obj
               // onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
               objFile="./iPersonal_BudgePro.obj"
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
-            />
+            /> */}
             <Obj
               onClick={() => showModal("MITxMERN-BankApp")}
               onHover={onHover}
@@ -224,7 +232,7 @@ export const EG = () => {
               rotation={[-Math.PI / 2, 0, 0]}
             />
             <Obj
-              onClick={() => showModal("MS_App_Asmbly_Mgr")}
+              onClick={() => showModal("AssemblyManager")}
               onHover={onHover}
               objFile="./iPersonal_AssemblyMgr.obj"
               mtl={materials}
@@ -232,7 +240,7 @@ export const EG = () => {
             />
             <Obj
               onHover={onHover}
-              // onClick={() => setShow(true)}
+              onClick={() => showModal("BIMdexter")}
               mtl={materials}
               objFile="./BIMDexter.obj"
               rotation={[-Math.PI / 2, 0, 0]}
@@ -279,55 +287,13 @@ export const EG = () => {
               mtl={materials}
               rotation={[-Math.PI / 2, 0, 0]}
             />
-          {/* <Timeline position={[0, -1, 3]} /> */}
-          <OrbitControls onEnd={(e) => console.log(e)} />
+            {/* <Timeline position={[0, -1, 3]} /> */}
+            <OrbitControls onEnd={(e) => console.log(e)} />
           </Center>
         </Canvas>
-        <div
-          className="h3 d-flex p-3 overflow-none  w-100 align-self-top mb-auto align-items-center"
-          style={{ position: "absolute" }}
-        >
-          <div className="bg-light d-flex rounded-5 text-dark w-100 align-self-top mb-auto align-items-center bg-opacity-25">
-            <div className="d-flex text-dark w-100 align-items-center">
-              <img
-                src="https://avatars.githubusercontent.com/u/49009980?v=4"
-                height={40}
-                className="rounded-circle m-1"
-              />
-              <span className="text-light display-6 ps-5 ms-1 pb-1 position-absolute">
-                Evan Geer
-              </span>
-            </div>
-            <div className="d-flex m-0 p-0 h4 pe-3 text-light align-items-center">
-              <span className="opacity-25 me-2 d-none d-sm-flex">contact:</span>
-              <a
-                href="https://www.linkedin.com/in/evangeer/"
-                className="link-light"
-              >
-                <Linkedin className="m-2" />
-              </a>
-              <a
-                href="https://github.com/EvanGeer"
-                className="link-light"
-              >
-                <Github className="m-2" />
-              </a>
-              <a
-                href="https://stackoverflow.com/users/15534202/egeer"
-                className="link-light"
-              >
-                <StackOverflow className="m-2" />
-              </a>
-              <a
-                href="https://medium.com/@evangeer"
-                className="link-light"
-              >
-                <Medium className="m-2" />
-              </a>
-            </div>
-          </div>
-        </div>
+        <Socials />
       </div>
     </>
   );
 };
+
