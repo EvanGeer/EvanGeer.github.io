@@ -12,7 +12,11 @@ export function OrgLogo({org, className=""}: {org: string, className?: string}) 
   const OrgLogos = new Map<string, JSX.Element>([
     [Org.BC, <LogoImg src={BC_Logo} />],
     [Org.MIT_MERN, <LogoImg src={MITx_Logo}/>],
-    [Org.PERSONAL, <div className="d-flex align-items-center"><HeadShot size={30} />{" "}Personal</div>],
+    [Org.PERSONAL, <div className="d-flex align-items-center p-1 h4"><HeadShot size={40} />
+      <span className="ms-2">
+        Personal Project
+        </span>
+      </div>],
     [Org.MSUITE, <ComboLogoImg />],
     [Org.KitConnect, <LogoImg src={Kc_Logo}/>],
     [Org.DEWALT, <LogoImg src={DeWalt_Logo}/>],

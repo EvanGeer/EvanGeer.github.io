@@ -32,6 +32,10 @@ export const EG = () => {
   const [projects, setProjects] = useState<Project[]>(null);
   const [projectsLoaded, setProjectsLoaded] = useState(false);
 
+  const [markdown, setMarkdown] = useState(new Map<string, string>());
+  const [markdownLoaded, setMarkdownLoaded] = useState(false);
+
+
   const [materials, setMaterials] = useState<MTLLoader.MaterialCreator>();
   const mtlLoader = new MTLLoader();
 
@@ -39,6 +43,48 @@ export const EG = () => {
     mtl.preload();
     setMaterials(mtl);
   });
+
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  const getMarkdownFiles = async () => {
+    if (!(projects?.length > 0)) return;
+
+    const markdownFiles = new Map<string, string>();
+
+    for (const p of projects) {
+      const markdownFilePath = `../projects/${p.key}.md`;
+
+      await fetch(markdownFilePath)
+        .then((response) => response.text())
+        .then((text) => {
+          if (text.includes("<!DOCTYPE html>")) return;
+          markdownFiles.set(p.key, text);
+          // newProjects[i] = newProj;
+          // const newProj = { ...p, markdown: text };
+        });
+    }
+
+    setMarkdown(markdownFiles);
+    setMarkdownLoaded(true);
+  };
+
+  useEffect(() => {
+    if (projectsLoaded && !markdownLoaded) {
+      getMarkdownFiles();
+      return;
+    }
+
+    if (!(markdownLoaded && projectsLoaded)) return;
+
+    const newProjects = projects.map((p: Project) => {
+      return { markdown: markdown.get(p.key), ...p };
+    });
+
+    setProjects(newProjects);
+    // getMarkdownFiles
+  }, [projectsLoaded, markdownLoaded]);
 
   const navigate = useNavigate();
 
@@ -147,13 +193,13 @@ export const EG = () => {
             decay={0}
             intensity={Math.PI}
           />
-          <PerspectiveCamera position={[-5, 5, 7]} makeDefault />
+          <PerspectiveCamera position={[-5, 7, 6]} makeDefault />
           <pointLight
             position={[-10, -10, -10]}
             decay={0}
             intensity={Math.PI}
           />
-          <Center position={[0,0.5,0]}>
+          <Center position={[0,0.75,0]}>
             <Obj
               objFile="./EGLogo.obj"
               rotation={[-Math.PI / 2, 0, 0]}

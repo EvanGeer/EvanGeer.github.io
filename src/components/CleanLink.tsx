@@ -2,7 +2,7 @@ export function CleanLink({ href }: { href: string; }) {
   return (
     <>
       {href ? (
-        <a className="text-wrap" href={href}>
+        <a className="text-wrap" href={href} target="newtab">
           {href
             ?.replace("http://", "")
             ?.replace("https://", "")
