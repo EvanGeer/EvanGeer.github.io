@@ -1,34 +1,70 @@
-import "../styles/style.css";
-import ProjectHighlights from "../components/ProjectHighlights";
-import { ProjectList } from "../components/ProjectList";
-import { Projects } from "../components/Projects";
+import { useState } from "react";
+import eg from "../images/EG.png";
+import { MainContainer } from "./MainContainer";
 
+export function Home() {
+  const [topic, setTopic] = useState("");
 
-function Home() {
+  const Link = ({ color, text }) => {
+    const activeColor = text === topic ? color : "muted";
+    const setActive = () => setTopic(topic === text ? "" : text);
+
+    return (
+      <>
+        <a
+          href="#"
+          onClick={setActive}
+          className={`display-4 text-${activeColor} mt-2 link-${color}`}
+        >
+          {text}
+        </a>
+        <br />
+      </>
+    );
+  };
+
   return (
     <>
-      {/* Summary */}
-      {/* <h3 className="display-4 text-info">Evan Geer</h3> */}
-      <h3 className="text-muted">
-        Engineering Leadership | Product Vision | Software Development
-      </h3>
-      <p className="text-light">
-        Leader in engineering, software, and construction with a passion for
-        scaling agile teams and driving excellence. Diverse background with
-        expertise in software development leadership in the software as a
-        service (SaaS) environment, object oriented software design and
-        architecture, agile team optimization, water/wastewater engineering,
-        data management, building information modeling (BIM), and virtual design
-        and construction (VDC).
-      </p>
+      <MainContainer>
+        <Link text={"Leadership"} color={"primary"} />
+        <Link text={"Vision"} color={"warning"} />
+        <Link text={"Excellence"} color={"success"} />
+        <p className="text-light mt-1 ms-1" style={{ fontSize: 18 }}>
+          Leader in engineering, software, and construction with a passion for
+          scaling agile teams and driving excellence. Diverse background with
+          expertise in software development leadership in the software as a
+          service (SaaS) environment, object oriented software design and
+          architecture, agile team optimization, water/wastewater engineering,
+          data management, building information modeling (BIM), and virtual
+          design and construction (VDC).
+        </p>
+      </MainContainer>
 
-      {/* Project Highlights */}
-      {/* <h2 className="text-info">Project Highlights</h2> */}
-      {/* <ProjectHighlights /> */}
-      {/* <ProjectList /> */}
-      <Projects />
+      <div className="d-flex d-md-none justify-items-start m-1 mt-4 rounded-5 overflow-hidden shadow row">
+        <h3 className="text-secondary p-3 w-100 bg-black text-center">
+          Leadership | Vision | Execution
+        </h3>{" "}
+        <div className="row m-0 p-0">
+          <img
+            src={eg}
+            width={"100%"}
+            style={{ objectFit: "scale-down" }}
+            className=""
+          />
+        </div>
+        <div className="p-2 bg-black">
+          <p className="text-light">
+            Leader in engineering, software, and construction with a passion for
+            scaling agile teams and driving excellence. Diverse background with
+            expertise in software development leadership in the software as a
+            service (SaaS) environment, object oriented software design and
+            architecture, agile team optimization, water/wastewater engineering,
+            data management, building information modeling (BIM), and virtual
+            design and construction (VDC).
+          </p>
+        </div>
+        {/* <img src={eg} style={{objectFit: "contain"}} className="object-fit-scale"/> */}
+      </div>
     </>
   );
 }
-
-export default Home;

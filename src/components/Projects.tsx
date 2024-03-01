@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Slicer from "./Slicer";
 import TechLogos from "../types/TechLogos";
 import gitHubLogo from "../images/Github_black.png";
+import { ProjectCardNew } from "./ProjectCardNew";
 
 export function Projects() {
   const navigate = useNavigate();
@@ -110,8 +111,9 @@ export function Projects() {
             p.technologies.some((x) => selectedTech.get(x)));
         return show;
       })
-      .map((p) => (
-        <ProjectCardSm
+      .map((p,i) => (
+        <ProjectCardNew
+          index={i}
           project={p}
           href={`/#/projects/${p.key}`}
           key={p.key}
@@ -156,15 +158,15 @@ export function Projects() {
         </Modal>
       ) : null}
       <div className="container">
-        <div className="row row-cols-3 bg-secondary p-0 no-gutter border border-dark rounded">
-          <div className="jumbotron container m-0 ml-0 pt-2 pb-3 mb-0 ">
+        <div className="row row-cols-3 p-0 no-gutter border border-dark rounded">
+          <div className="container m-0 ml-0 pt-2 pb-3 mb-0 ">
             <div className="d-flex flex-wrap justify-items-center justify-content-between m-0 p-0">
-              <h3
-                className="display-5 text-dark mb-0"
+              <span
+                className="display-4 text-light mb-0"
                 onClick={() => setProject(null)}
               >
                 Project Samples:
-              </h3>
+              </span>
               <div>
                 <div
                   className={`m-0 p-0 ms-1 d-flex flex-wrap float-right border border-secondary align-items-center ${

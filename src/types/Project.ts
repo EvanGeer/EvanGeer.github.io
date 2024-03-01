@@ -8,9 +8,11 @@ export default interface Project {
   summary: string;
   details: string;
   imgSrc: string;
+  mouseOverImgSrc?: string;
   highlight: boolean;
   hide: boolean;
   repo: string;
   deployment: string;
   markdown: string;
+  comingSoon?: boolean;
 }

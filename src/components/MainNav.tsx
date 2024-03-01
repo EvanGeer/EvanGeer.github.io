@@ -1,50 +1,53 @@
-import { NavbarBrand } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink } from "react-router-dom";
-import gitHubLogo from "../images/Github_black.png";
-import linkInLogo from "../images/LinkedIN_black.png";
-import mailIcon from "../images/Mail_ru_black.png";
-import { LinkContainer } from "react-router-bootstrap";
 import { HeadShot } from "./HeadShot";
+import { Github, Icon, Linkedin, StackOverflow } from "react-bootstrap-icons";
+import { NavLinks } from "./NavLinks";
 
-export function MainNav() { 
+export function MainNav() {
+  const Social = ({ Icon: Icon, linkUrl }: { Icon: Icon; linkUrl: string }) => {
+    return (
+      // <div id={linkUrl}
+      //   className="d-flex p-0 m-0 justify-content-center align-items-center bg-dark rounded-circle text-light"
+      //   style={{ width: 36, height: 36 }}
+      // >
+      <a href={linkUrl} target="newPage">
+        <Icon size={24} className="d-flex text-dark ms-3 link-secondary" />
+      </a>
+      // </div>
+    );
+  };
+
+  const socials = [
+    <Social Icon={Linkedin} linkUrl="https://www.linkedin.com/in/evangeer/" />,
+    <Social Icon={Github} linkUrl="https://github.com/EvanGeer" />,
+    <Social
+      Icon={StackOverflow}
+      linkUrl="https://stackoverflow.com/users/15534202/egeer"
+    />,
+  ];
+
+  const SocialLinks = () => {
+    return <div className="d-flex pe-4 align-items-center">{socials}</div>;
+  };
+
   return (
     <>
-      <Navbar bg="light" expand="lg" className="sticky-top mb-4">
-        <Container className="">
-          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-          <Navbar.Brand href="/">
-            <HeadShot size={40} className="rounded-circle me-2" />
-            Evan Geer
-          </Navbar.Brand>
-          {/* <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto  nav-tabs">
-              <Nav.Link as={NavLink} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/bio">
-                Bio
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/projects">
-                Projects
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse> */}
-          <Navbar.Text>
-            <a className="footer" href="https://www.linkedin.com/in/evangeer/">
-              <img width="20" className="p-0" src={linkInLogo} />
-            </a>
-            <span className="text-dark">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a className="footer" href="https://github.com/EvanGeer">
-              <img width="20" className="m2" src={gitHubLogo} />
-            </a>
-          </Navbar.Text>
-          {/* </Container> */}
-        </Container>
-      </Navbar>
+      <div className="ps-4 d-flex align-items-center">
+        <HeadShot size={45} className="rounded-circle me-2" />
+        <span className="text-white h3 p-0 m-0 pe-4 d-none d-md-block">
+          Evan Geer
+        </span>
+        <span className="text-white h4 p-0 m-0 pe-2 d-xs-block d-md-none">
+          Evan Geer
+        </span>
+        {/* <span className="text-white h5 p-0 m-0 pe-2 d-xs-block d-sm-none">Evan Geer</span> */}
+        <div className="d-none d-sm-inline">
+          <NavLinks className={""} />
+        </div>
+      </div>
+
+      <div className="">
+        <SocialLinks />
+      </div>
     </>
   );
 }
