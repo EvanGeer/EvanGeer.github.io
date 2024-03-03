@@ -35,7 +35,7 @@
     {
       "id": 3100.1,
       "key": "DeWALT-HWP",
-      "title": "DeWALT HangerWorks Pro",
+      "title": "HangerWorks Pro",
       "org": "DEWALT",
       "openSource": false,
       "technologies": ["C#", "WPF", "Revit"],
