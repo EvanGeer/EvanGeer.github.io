@@ -30,8 +30,8 @@ export function Home() {
         <Link text={"Vision"} color={"warning"} />
         <Link text={"Excellence"} color={"success"} />
         <p className="text-light mt-1 ms-1" style={{ fontSize: 18 }}>
-          Leader in engineering, software, and construction with a passion for
-          scaling agile teams and driving excellence. Diverse background with
+          Leader in architecture, engineering and construction technology with software, and construction with a passion for
+            scaling agile teams and driving excellence. Diverse background with
           expertise in software development leadership in the software as a
           service (SaaS) environment, object oriented software design and
           architecture, agile team optimization, water/wastewater engineering,

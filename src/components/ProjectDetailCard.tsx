@@ -62,13 +62,13 @@ export function ProjectDetailCard({
           </div>
 
           <div className="d-flex h3">
-            <div className="align-self-center d-flex m-auto">
+            <div className="align-self-center text-end d-flex m-auto">
               {project.title}
             </div>
             <button
               onClick={onClose}
               // variant="light"
-              className="btn btn-light link-secondary text-dark d-flex p-1 m-2"
+              className="btn btn-light link-secondary text-dark d-flex p-1 m-2 mb-auto mt-auto"
             >
               <XLg size={24} />
             </button>
@@ -122,14 +122,14 @@ export function ProjectDetailCard({
         <div className="align-content-center justify-content-between d-flex m-0 mt-1 p-0 mb-2">
           <button
             onClick={() => goToPrevious()}
-            className="m-0 d-flex btn btn-outline-secondary"
+            className="m-0 d-flex btn btn-light"
           >
             <ChevronDoubleLeft className="m-auto" />
           </button>
 
           <button
-            onClick={() => goToPrevious()}
-            className="m-0 d-flex btn btn-outline-secondary"
+            onClick={() => goToNext()}
+            className="m-0 d-flex btn btn-light"
           >
             <ChevronDoubleRight className="m-auto" />
           </button>
