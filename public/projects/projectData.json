@@ -28,7 +28,7 @@
       "summary": "Re-architected several key structures, including Revit year handling, overall MVVM pattern, and authentication.",
       "details": "...",
       "imgSrc": "../images/KitConnectSample1.webp",
-      "mouseOverImgSrc": "../images/KitConnect_Animated.gif",
+      "mouseOverImgSrc": "../images/KitConnectSchedule_3.gif",
       "deployment": "https://www.kitconnect.com/",
       "highlight": true
     },

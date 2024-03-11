@@ -1,26 +1,17 @@
 import "./App.css";
 import { HashRouter } from "react-router-dom";
 import { Router } from "./router";
-import { Key } from "react-bootstrap-icons";
-import { KeyboardControls, KeyboardControlsEntry } from "@react-three/drei";
-import { useMemo } from "react";
-
+import ReactGA from "react-ga4";
+import { useEffect } from "react";
+const TRACKING_ID = "G-42MCF57H32";
 function App() {
-  const map = useMemo<KeyboardControlsEntry[]>(
-    () => [
-      { name: "next", keys: ["ArrowLeft", "KeyA"] },
-      { name: "previous", keys: ["ArrowRight", "KeyD", "Space", "Tab"] },
-      { name: "close", keys: ["Escape"] },
-    ],
-    []
-  );
-
+  useEffect(() => {
+    ReactGA.initialize(TRACKING_ID);
+  }, []);
   return (
-    // <KeyboardControls map={map}>
-      <HashRouter>
-        <Router />
-      </HashRouter>
-    // </KeyboardControls>,D
+    <HashRouter>
+      <Router />
+    </HashRouter>
   );
 }
 

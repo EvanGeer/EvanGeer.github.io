@@ -5,12 +5,14 @@ import { TechStack } from "./TechStack";
 import ReactMarkdown from "react-markdown";
 import { CleanLink } from "./CleanLink";
 import { useSwipeable } from "react-swipeable";
+
 import {
   ChevronDoubleLeft,
   ChevronDoubleRight,
   X,
   XLg,
 } from "react-bootstrap-icons";
+import { useEffect } from "react";
 
 export function ProjectDetailCard({
   project,
@@ -46,12 +48,7 @@ export function ProjectDetailCard({
     preventScrollOnSwipe: true,
   });
 
-  // const PreviousNextButtons = ({ children = null }) => {
-  //   const linkClass = "h5 link-secondary";
-  //   return (
 
-  //   );
-  // };
 
   return (
     <Card className="bg-opacity-0 align-content border-0 bg-dark" {...handlers}>

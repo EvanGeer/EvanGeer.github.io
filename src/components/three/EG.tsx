@@ -1,21 +1,15 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Euler, Group, Mesh, Object3DEventMap, Vector3 } from "three";
-import { OBJLoader, MTLLoader } from "three/examples/jsm/Addons.js";
-
+import { Canvas } from "@react-three/fiber";
+import { Group, Object3DEventMap } from "three";
+import { MTLLoader } from "three/examples/jsm/Addons.js";
+import ReactGA from "react-ga4";
 import {
   Center,
-  CycleRaycast,
-  Html,
-  Loader,
   OrbitControls,
   PerspectiveCamera,
-  useKeyboardControls,
   useProgress,
 } from "@react-three/drei";
-import { Modal, Spinner } from "react-bootstrap";
-import { Linkedin, XLg } from "react-bootstrap-icons";
-import { useNavigate } from "react-router-dom";
+import { Modal } from "react-bootstrap";
 import { ProjectDetailCard } from "../ProjectDetailCard";
 import Project from "../../types/Project";
 import { Obj } from "./Obj";
@@ -164,12 +158,24 @@ export const EG = () => {
   const canvasCenter = useRef<Group<Object3DEventMap>>();
   const { progress } = useProgress();
 
+  // Send pageview with a custom path
+  useEffect(() => {
+    if (!project?.id) return;
+
+    console.log(`load: ${project.key}`);
+    ReactGA.send({
+      hitType: "pageview",
+      page: `/${project.key}`,
+      title: project.title,
+    });
+  }, [project]);
+
+  console.log("main", { show, project });
   return (
     <>
       {/* {project && ( */}
       <Modal
         onKeyDown={(e) => console.log(e)}
-        // show={true}
         show={show && project !== undefined}
         onHide={() => setShow(false)}
         size="lg"
@@ -196,7 +202,7 @@ export const EG = () => {
           <ProjectDetailCard
             project={project}
             onClose={() => setShow(false)}
-            key={project?.id}
+            key={project?.key}
             goToPrevious={goToPrevious}
             goToNext={goToNext}
           />
